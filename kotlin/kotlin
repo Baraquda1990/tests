@@ -1,0 +1,942 @@
+fun main(args: Array<String>) {
+
+    //Переменные и базовые классы данных в Kotlin
+    println("Hello World!")
+    println("Program arguments: ${args.joinToString()}")
+
+    var a:Int
+    a=5
+    println(a)
+
+    a=a+10
+    println(a)
+
+    var aa:Int=8
+    println(aa)
+
+    var b=15
+    println(b)
+
+    b+=5
+    println(b)
+
+    val abc=3.4
+    println(abc)
+
+    val q=true
+    val w=false
+    var e:Boolean=q>w
+    println(e)
+    e=q<=w
+    println(e)
+
+    val s="Hello"
+    val s2:String
+    val c="W"
+    val c2:Char=s[0]
+    s2=s+c
+    println(s2)
+    println(c2)
+
+    //print("Введите что-нибуть: ")
+    //val inp:String=readln()
+    //println(inp)
+
+    //Операторы ?., ?: и !! языка Kotlin
+    //print("Введите что-нибуть: ")
+    //val inp2:String?=readlnOrNull()
+    //if(inp2!=null) {
+    //    println(inp2.length)
+    //}
+    //else{
+    //    println(-1)
+    //}
+
+    /*val bb: String? = "World"
+    val cc: String? = null
+    val bL: Int? = bb?.length
+    val cL: Int? = cc?.length
+    println(bL)
+    println(cL)
+
+    val bbb: String? = readlnOrNull()
+    val ccc: String = bbb ?: ""
+    println(ccc.length)
+
+    val bbbb: String = readlnOrNull() ?: ""
+    println(bbbb.length)*/
+
+    val b2: String? =
+        if ((0..1).random() == 1)
+            "World"
+        else
+            null
+    val c3: Int = b2?.length ?: -1
+    println(c3)
+
+    val b5: String? = readlnOrNull()
+    val c5: String = b5!!
+    val d5: String = readlnOrNull()!!
+    val e5: String? = readlnOrNull()
+    println(c5)
+    println(d5)
+    println(e5!!.length)
+}
+
+fun main(args: Array<String>) {
+    //Условные выражения в Kotlin. Операторы if и when
+    /*val a = "String"
+    if (a[3] == 'r') {
+        println("Yes")
+    }
+    else {
+        println(a[3]) // i
+    }*/
+
+    /*val a = "String"
+    val b = if (a[3] == 'r') {
+        println("Yes")
+    }
+    else {
+        println(a[3]) // i
+    }
+    println(b) // kotlin.Unit*/
+
+    /*val a = "String"
+    val b = if (a[3] == 'r') {
+        "Yes"
+    }
+    else {
+        a[3].toString()
+    }
+    println(b) // i*/
+
+    /*val a = "String"
+
+    val b = if (a[3] == 'r')
+        "Yes"
+    else
+        a[3].toString()
+
+    println(b) // i*/
+
+    /*val a = Math.random()
+    val b = Math.random()
+
+    val c = if (a > b) {
+        println("a > b")
+        a + 1
+    }
+    else {
+        println("b > a")
+        b + 1
+    }
+
+    println(c)*/
+
+    /*val a = "String"
+
+    when (a[2]) {
+        'r' -> println("Yes")
+        'i' -> println("Not 'r'")
+    }*/
+
+    /*val a = "String"
+
+    val b = when (a[3]) {
+        'r' -> "Yes"
+        else -> "Not 'r'"
+    }
+
+    println(b)*/
+
+    /*val a = (Math.random() * 3).toInt()
+
+    println(a)
+
+    val b = when(a) {
+        0 -> "Zero"
+        1 -> "One"
+        else -> "Two"
+    }
+
+    println(b)*/
+
+    /*val c = Numbers.ONE
+
+    val d = when(c) {
+        Numbers.ZERO -> 0
+        Numbers.ONE -> 1
+        Numbers.TWO -> 2
+    }
+
+    println(d)*/
+
+    /*when (readln()) {
+        "Hello" -> {
+            println("Hello")
+            println("World")
+            println("!!!")
+        }
+        else -> {
+            println("Hi")
+            println("?")
+        }
+    }*/
+
+    /*when ((Math.random() * 100).toInt()) {
+        in 0..10, in 90..99 -> println("Bad")
+        in 11..50, in 60..89 -> println("Good")
+        in 51..59 -> println("Excellent")
+    }*/
+
+    /*val a = (Math.random() * 100).toInt()
+
+    when {
+        a < 10 || a > 90 -> println("Bad")
+        a in 51..59 -> println("Excellent")
+        else -> println("Good")
+    }*/
+
+}
+
+enum class Numbers {
+    ZERO, ONE, TWO
+}
+
+fun main(args: Array<String>) {
+    //Массивы в Kotlin
+    /*val a:Array<Int> = arrayOf(9, 15, 4)
+    println("Длина массива=${a.size}")
+    for(i in a){
+        print("$i ")
+    }
+    a[0]=10
+    println("")
+    for(i in a){
+        print("$i ")
+    }*/
+
+    /*val a:Array<Int> = Array(3){0}
+    a[1]=2
+    for(i in a)
+        print("$i ")*/
+
+    //BooleanArray, ByteArray, ShortArray, IntArray, LongArray, CharArray, FloatArray, DoubleArray
+    //Для числовых типов также есть варианты беззнаковых массивов – UByteArray, UShortArray, UIntArray, ULongArray
+    /*val a:BooleanArray = booleanArrayOf(true,false,true)
+    for(i in a)
+        print("$i ")*/
+
+    /*val b:IntArray = intArrayOf(10,2,50,3)
+    println(2 in b)
+    println(2 !in b)
+    println(50 !in b)*/
+
+    /*val a: Array<IntArray> = Array(3) {IntArray(4) {0} }
+
+    // количество строк
+    val n = a.size
+    // количество элементов в строке
+    val m = a[0].size
+
+    for (i in 0 until n) {
+        for (j in 0 until m) {
+            a[i][j] = (Math.random() * 10)
+                .toInt()
+            print(" ${a[i][j]}")
+        }
+        println()
+    }*/
+
+    val a: Array<IntArray> = Array(2) {IntArray(4) {0} }
+    a[0] = intArrayOf(1, 2, 3, 4)
+    a[1] = intArrayOf(5, 6, 7, 8)
+
+    for (i in a) {
+        for (j in i) {
+            print(" $j")
+        }
+        println()
+    }
+
+}
+
+fun main(args: Array<String>) {
+    //Диапазоны, или интервалы, и прогрессии в Kotlin
+    val a =1..4
+    val b=1 until 4
+    for(i in a){
+        print("$i ")
+    }//1234
+    println()
+    for(i in b){
+        print("$i ")
+    }//123
+    println()
+
+
+    val s="String"
+    val cs=if (s[3] !in 'k'..'z')
+        "Yes"
+    else
+        s[3].toString()
+    println(cs)
+
+
+    val s2="String"
+    val cs2=when(s2[3])
+        {in 'k'..'z'->"Yes"
+        else -> s2[3].toString()}
+    println(cs2)
+
+
+    val a3 = 1..3
+    val b3 = 1
+    println(b3 !in a3) // false
+
+
+    val q=1..9 step 3
+    val w=1 until 10 step 2
+    val e=0 downTo -4
+    val r='z' downTo 'a' step 5
+    for(i in q) print("$i ")
+    println()
+    for(i in w) print("$i ")
+    println()
+    for(i in e) print("$i ")
+    println()
+    for(i in r) print("$i ")
+    println()
+
+    val z=1..3
+    val x=1 until 3
+    val v=3 downTo 1
+    println(z.toList())
+    println(x.toList())
+    println(v.toList())
+}
+
+import kotlin.random.Random
+fun main(args: Array<String>) {
+    //Коллекции в Kotlin - списки, словари и множества
+    /*val a:List<Int>
+    val b:Map<String,Int>
+    val c:Set<Byte>*/
+
+    val a= listOf(1,2,3,4)//[1, 2, 3, 4]
+    val b= mapOf("green" to 5,"black" to 13)//{green=5, black=13}
+    val c= setOf(1,3,5,7,9)//[1, 3, 5, 7, 9]
+    val d=List(10){0}//[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    val e=List(10){Random.nextInt(100)}//[1, 92, 55, 49, 8, 47, 26, 48, 99, 48]
+    val f=List(10){it*2+1}//[1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+    println(a)
+    println(b)
+    println(c)
+    println(d)
+    println(e)
+    println(f)
+
+
+    val g = MutableList(10){0}
+    g[0] = 109
+
+    val h = mutableListOf<Int>()
+    h.add(40)
+
+    val j = mutableMapOf('a' to 10, 'b' to 5)
+    j['c'] = 12
+
+    for ((key, value) in j)
+        println("$key = $value")
+
+
+    val i = ArrayList<String>()
+    i.add("Hello")
+    i.add("World")
+
+    val o = setOf("hi", "oh")
+    val p = ArrayList(o)
+
+}
+
+fun main(args: Array<String>) {
+    //Циклы в Kotlin
+    /*print("Введите что-нибуть")
+    var a=readln()
+    while(a==""){
+        println("Введите что-нибуть")
+        a=readln()
+    }
+    println("Вы ввели: $a")*/
+
+
+    /*var a:String
+    do{
+        println("Введите что-нибуть")
+        a=readln()
+    }while(a=="")
+    println("Вы ввели: $a")*/
+
+
+    /*for (i in 0..10){
+        print(" $i") // 0 1 2 3 4 5 6 7 8 9 10
+    }*/
+
+    /*val a= mutableListOf(3,5,7,9)
+    for(i in 0 until a.size){
+        a[i]+=2
+    }
+    println(a)//[5, 7, 9, 11]
+    for(i in a.indices){
+        a[i]+=2
+    }
+    println(a)//[7, 9, 11, 13]
+    for ((i,item) in a.withIndex()){
+        a[i]=item+2
+    }
+    println(a)//[9, 11, 13, 15]*/
+
+    /*val c= listOf(1,3,5)
+    c.forEach{println(it)}*/
+
+    val a = listOf(1,3,5)
+    repeat(3){
+        print(" $it")
+    }
+}
+
+/*fun main(args: Array<String>) {
+    //Функции в Kotlin
+    /*val a=5
+    val b=4
+    println(avr(a,b))*/
+
+    /*val a = 3
+    val b = 5
+    val c = abNumber(a, b)
+    println(c)*/
+
+
+    /*val a = hello()
+    println(a) // kotlin.Unit*/
+
+
+    repeatStr("Hi", 3) // HiHiHi
+    println()
+    repeatStr("Hello") // HelloHello
+}*/
+
+/*fun avr(n1:Int,n2:Int):Float{
+    return (n1+n2).toFloat()/2
+}*/
+
+//fun avr(n1:Int,n2:Int):Float=(n1+n2).toFloat()/2
+
+/*fun abNumber(n1: Int, n2: Int) =
+    if (n1 > n2) {
+        n1 / n2
+    }
+    else {
+        n2 / n1
+    }*/
+
+/*fun hello() {
+    println("hi") // hi
+}*/
+
+/*fun repeatStr(s: String, n: Int = 2) {
+    for(i in 1..n)
+        print(s)
+}*/
+
+/*fun main() {
+    repeatStr(3, "Hi") // HiHiHi
+    println()
+    repeatStr(s = "Hello") // HelloHello
+}
+
+fun repeatStr(n: Int = 2, s: String) {
+    for(i in 1..n)
+        print(s)
+}*/
+
+/*fun main() {
+    repeatStr(s = "Hi", n = 3) // HiHiHi
+    println()
+    repeatStr(n = 2, s = "Hello") // HelloHello
+}
+
+fun repeatStr(s: String, n: Int) {
+    for(i in 1..n)
+        print(s)
+}*/
+
+
+/*fun main() {
+    println(avr(0, 1, 8)) // 3.0
+    println(avr(-5, 1)) // -2.0
+}
+
+fun avr(vararg nums: Int): Float {
+    val sum = nums.sum()
+    val l = nums.size
+    return sum.toFloat() / l
+}*/
+
+fun main() {
+    val a: IntArray = intArrayOf(0, 1, 8)
+    println(avr(*a)) // 3.0
+}
+
+fun avr(vararg nums: Int): Float {
+    val sum = nums.sum()
+    val l = nums.size
+    return sum.toFloat() / l
+}
+
+/*fun main(args: Array<String>) {
+//Объектно-ориентированное программирование в Kotlin
+}*/
+
+/*fun main() {
+    val obj1 = MyClass()
+    val obj2 = MyClass(10, 5)
+}
+
+class MyClass(var a: Int = 0, var b: Int = 0)*/
+
+/*class MyClass(aa: Int = 0, bb: Int = 0) {
+    var a = aa
+    var b = bb
+}*/
+
+/*class MyClass {
+    var a: Int
+    var b: Int
+
+    constructor(aa: Int = 0, bb: Int = 0) {
+        a = aa
+        b = bb
+    }
+}*/
+
+/*fun main() {
+    val obj1 = MyClass()
+    println(obj1.d) // true
+    val obj2 = MyClass(10, 5)
+    println(obj2.d) // false
+}
+
+class MyClass(aa: Int, bb: Int) {
+    var a = aa
+    var b = bb
+    var d = false
+
+    constructor(): this(0, 0) {
+        d = true
+    }
+}*/
+
+/*fun main() {
+    val obj1 = MyClass()
+    println(obj1.d) // true
+    val obj2 = MyClass(0, 0)
+    println(obj2.d) // true
+}
+
+class MyClass(aa: Int = 0, bb: Int = 0) {
+    var a = aa
+    var b = bb
+    var d: Boolean
+    init {
+        if (aa == 0 && bb == 0)
+            d = true
+        else d = false
+    }
+}*/
+
+/*class MyClass(aa: Int, bb: Int) {
+    var a = aa
+        get() {return field}
+        set(value) {field = value}
+
+    var b = bb
+        get() {return field}
+        set(value) {field = value}
+}*/
+
+/*fun main() {
+    val obj1 = MyClass(12, 3)
+    obj1.a = -5
+    println(obj1.a) // 12
+    // obj1.b = 9 Error
+    println(obj1.b) // Ok 3
+}
+
+class MyClass(aa: Int, bb: Int) {
+    var a = aa
+        set(value) {
+            if ((value) > 0)
+                field = value
+        }
+
+    var b = bb
+        private set
+}*/
+
+fun main() {
+    val obj1 = MyClass(12, 3)
+    obj1.member()
+    obj1.extension()
+}
+
+class MyClass(val a: Int = 0, val b: Int = 0) {
+
+    fun member() {
+        println("member-function")
+        println(a + b)
+    }
+}
+
+fun MyClass.extension() {
+    println("extension-function")
+    println(a - b)
+}
+
+/*fun main(args: Array<String>) {
+//Класс данных – data class
+}*/
+
+/*class Book(val title: String,
+           val author: String,
+           val year: Int)
+fun main() {
+    val a = Book("ABC", "Tom", 2015)
+    val b = Book("River", "Sam", 2007)
+}*/
+
+/*data class Book(val title: String,
+                val author: String,
+                val year: Int)*/
+
+/*data class Book(val title: String,
+                val author: String,
+                val year: Int) {
+
+    override fun toString(): String {
+        return "$title, $author, $year"
+    }
+}*/
+
+/*override fun toString(): String {
+    return super.toString()
+}*/
+
+/*fun main() {
+    val a = Book("ABC", "Tom", 2015)
+    val c = Book("ABC", "Tom", 2015)
+    val b = Book("River", "Sam", 2007)
+    println(a == c) // true
+    println(a == b) // false
+}*/
+
+/*fun main() {
+    val a = Book("ABC", "Tom", 2015)
+    val b = a.copy()
+    val c = a.copy(title="River", year=2007)
+    println(a)
+    println(b)
+    println(c)
+}*/
+
+/*Book(title=ABC, author=Tom, year=2015)
+Book(title=ABC, author=Tom, year=2015)
+Book(title=River, author=Tom, year=2007)*/
+
+/*fun main() {
+    val book1 = Book("ABC", "Tom", 2015)
+    val (a, b, c) = book1 // мультидекларация!
+    println(a) // ABC
+    println(b) // Tom
+    println(c) // 2015
+}*/
+
+/*class Book(val title: String,
+           val author: String,
+           val year: Int) {
+    operator fun component1() = title
+    operator fun component2() = author
+    operator fun component3() = year
+}*/
+
+/*fun main() {
+    val books = ArrayList<Book>()
+    books.add(Book("ABC", "Tom", 2015))
+    books.add(Book("What", "Tom", 2016))
+    books.add(Book("River", "Sam", 2007))
+
+    for ((t, a, y) in books) {
+        println("$y, $t")
+    }
+}*/
+
+/*data class Book(val title: String,
+                val author: String,
+                val year: Int) {
+    val pages: Int = 0
+}*/
+
+/*fun main() {
+    val t = Triple(1, "First", "Один")
+    val t2 = t.copy(third = "Первый")
+}*/
+
+//Классы перечислений - enum
+
+/*enum class Fruits {
+    BANANA, APPLE, ORANGE, KIWI
+}
+fun main() {
+    val orange: Fruits = Fruits.ORANGE
+    println(orange) // ORANGE
+    println(orange.name) // ORANGE
+    println(orange.ordinal) // 2
+}
+ */
+
+/*enum class Fruits {
+    BANANA(10, 0.9), APPLE(12, 1.1),
+    ORANGE(5, 1.5), KIWI(15, 1.8);
+
+    var qty: Int
+    var price: Double
+
+    constructor(q: Int, p: Double) {
+        qty = q
+        price = p
+    }
+}
+fun main() {
+    println(Fruits.ORANGE.qty) // 5
+}*/
+
+/*enum class Fruits(
+    var qty: Int,
+    var price: Double) {
+
+    BANANA(10, 0.9),
+    APPLE(12, 1.1),
+    ORANGE(5, 1.5),
+    KIWI(15, 1.8);
+}*/
+
+/*enum class Fruits(
+    var qty: Int,
+    var price: Double) {
+
+    BANANA(10, 0.9),
+    APPLE(12, 1.1),
+    ORANGE(5, 1.5),
+    KIWI(15, 1.8);
+
+    fun sell(n: Int) {qty -= n}
+
+    fun changePrice(newPrice: Double) {
+        price = newPrice
+    }
+}
+fun main() {
+    val o = Fruits.ORANGE
+    println("${o.qty}, ${o.price}") // 5, 1.5
+    o.sell(3)
+    o.changePrice(1.3)
+    println("${o.qty}, ${o.price}") // 2, 1.3
+} */
+
+/*fun main() {
+    for (i in Fruits.values())
+        i.changePrice(0.2)
+}
+import Fruits.*
+
+fun main() {
+    println(ORANGE.qty)
+}
+
+ */
+
+//Введение в дженерики – обобщенные классы и функции
+
+/*fun main() {
+    val a: Int = 10
+    val b: Double = 1.5
+    fraction(a) // 2.0
+    fraction(b) // 0.3
+}
+fun fraction(n: Number) {
+    println(n.toDouble() / 5)
+}*/
+
+/*fun main() {
+    val a: Int = 10
+    val b: String = "Hello"
+    val c: List<Int> = listOf(1, 5)
+
+    val aa: List<Int> = doTwo(a)
+    val bb: List<String> = doTwo(b)
+    val cc: List<List<Int>> = doTwo(c)
+
+    println(aa) // [10, 10]
+    println(bb) // [Hello, Hello]
+    println(cc) // [[1, 5], [1, 5]]
+}
+fun <T> doTwo(obj: T): List<T> {
+    val list: List<T> = listOf(obj, obj)
+    return list
+}*/
+
+/*fun main() {
+    val a: Int = 10
+    val b: String = "Hello"
+    val c: List<Int> = listOf(10, 16, 3)
+    parePrint(a, '{') // {10}
+    parePrint(b, '[') // [Hello]
+    parePrint(c, '"') // "[10, 16, 3]"
+}
+fun <T> parePrint(obj: T, p: Char) {
+    when(p) {
+        '(', ')' -> println("($obj)")
+        '[', ']' -> println("[$obj]")
+        '{', '}' -> println("{$obj}")
+        else -> println("$p$obj$p")
+    }
+}*/
+
+/*fun main() {
+    val a: Int = 10
+    val b: Double = 1.5
+    println(fraction(a, 5)) // 2.0
+    println(fraction(b, 3)) // 0.5
+}
+fun <T: Number> fraction(n: T, f: Int): Double {
+    return n.toDouble() / f
+}*/
+
+/*class Something<T> {
+    val prop: T
+
+    constructor(p: T) {
+        prop = p
+    }
+}
+fun main() {
+    val a: Something<Int> = Something(10)
+    val b: Something<String> = Something("Hello")
+    println(a.prop) // 10
+    println(b.prop) // Hello
+}*/
+
+/*class Something<T>(p: T) {
+    val prop: T = p
+}
+class Something<T>(val prop: T)
+ */
+
+/*fun main() {
+    val a: List<Int> = listOf(4, 5)
+    val b: Map<Char, Int> =
+        mapOf('a' to 2, 'b' to 10)
+}
+class Something<T, V>(p: T, q: V) {
+    val prop: T = p
+    val qty: V = q
+}
+fun main() {
+    val a: Something<String, Int>
+    a = Something("Hello", 5)
+}
+
+ */
+
+//Лямбда-выражения в Kotlin
+
+/*fun main() {
+    {println(1)}()
+}
+
+ */
+
+/*fun main() {
+    {n: Int -> println(n)}(10)
+}
+
+ */
+
+/*fun main() {
+
+    // выведет: 10
+    val a = {n: Int -> println(n)}(10)
+
+    // выведет: kotlin.Unit
+    println(a)
+} */
+
+/*fun main() {
+    val a = {n: Int, m: Int ->
+        println(n + m)
+        n + m
+    }(10, 20)
+
+    println(a)
+}*/
+
+/*fun main() {
+    val a = {n: Int, m: Int -> n + m}
+    val b = a(10, 20)
+    val c = a(30, 40)
+
+    println(a)
+    println(b)
+    println(c)
+}*/
+
+//Функции высшего порядка
+
+/*fun main() {
+    val firstList = listOf(1, 4, 10)
+    val mult2: (Int) -> Int = {it * 2}
+    val add2: (Int) -> Int = {it + 2}
+
+    val multList = mathWithList(firstList, mult2)
+    val addList = mathWithList(firstList, add2)
+
+    println(multList)  // [2, 8, 20]
+    println(addList)   // [3, 6, 12]
+}
+
+fun mathWithList(yourList: List<Int>, math: (Int) -> Int): List<Int> {
+    val newList = mutableListOf<Int>()
+    for (i in yourList) {
+        newList.add(math(i))
+    }
+    return newList
+}*/
+
+fun main() {
+    val firstList = listOf(1, 4, 10)
+
+    val multList = firstList.mathWithList {it * 2}
+    val addList = firstList.mathWithList {it + 2}
+
+    println(multList)
+    println(addList)
+}
+
+fun List<Int>.mathWithList(math: (Int) -> Int): List<Int> {
+    val newList = mutableListOf<Int>()
+    for (i in this) {
+        newList.add(math(i))
+    }
+    return newList
+}
