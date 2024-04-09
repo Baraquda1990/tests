@@ -1,0 +1,186 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = 1.0
+margin_bottom = 2.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = 0.031
+anchor_top = 0.038
+anchor_right = 0.031
+anchor_bottom = 0.038
+margin_left = 0.255999
+margin_top = 0.199999
+margin_right = 413.256
+margin_bottom = 47.2
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+margin_right = 204.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button2" type="Button" parent="HBoxContainer"]
+margin_left = 208.0
+margin_right = 413.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.03
+anchor_top = 0.15
+anchor_right = 0.03
+anchor_bottom = 0.15
+margin_left = 0.279999
+margin_right = 63.28
+margin_bottom = 387.0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+margin_right = 63.0
+margin_bottom = 191.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+margin_top = 195.0
+margin_right = 63.0
+margin_bottom = 387.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="."]
+margin_left = 202.0
+margin_top = 182.0
+margin_right = 304.0
+margin_bottom = 253.0
+
+[node name="ColorPicker" type="ColorPicker" parent="."]
+margin_left = 735.0
+margin_top = 8.0
+margin_right = 1025.0
+margin_bottom = 470.0
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchor_left = 0.461
+anchor_top = 0.028
+anchor_right = 0.461
+anchor_bottom = 0.028
+margin_left = 1.93597
+margin_top = 2.2
+margin_right = 204.936
+margin_bottom = 60.2
+columns = 3
+
+[node name="LineEdit" type="LineEdit" parent="GridContainer"]
+margin_right = 65.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="GridContainer"]
+margin_left = 69.0
+margin_right = 134.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+text = "dfrthgfg
+"
+
+[node name="TextEdit" type="TextEdit" parent="GridContainer"]
+margin_left = 138.0
+margin_right = 203.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+text = "cgfyhj
+"
+
+[node name="Button" type="Button" parent="GridContainer"]
+margin_top = 35.0
+margin_right = 65.0
+margin_bottom = 55.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 0.333
+anchor_top = 0.154
+anchor_right = 0.333
+anchor_bottom = 0.154
+margin_left = 20.0
+margin_top = 10.0
+margin_right = 71.008
+margin_bottom = 33.6
+
+[node name="Button" type="Button" parent="MarginContainer"]
+margin_right = 51.0
+margin_bottom = 23.0
+
+[node name="TabContainer" type="TabContainer" parent="."]
+margin_left = 316.0
+margin_top = 163.0
+margin_right = 549.0
+margin_bottom = 300.0
+
+[node name="Panel" type="Panel" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Label" type="Label" parent="TabContainer/Panel"]
+margin_right = 56.0
+margin_bottom = 31.0
+text = "123"
+
+[node name="Panel2" type="Panel" parent="TabContainer"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="TabContainer/Panel2"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "321"
+
+[node name="TabContainer2" type="TabContainer" parent="."]
+margin_left = 558.0
+margin_top = 162.0
+margin_right = 710.0
+margin_bottom = 297.0
+
+[node name="Tabs" type="Tabs" parent="TabContainer2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Tabs2" type="Tabs" parent="TabContainer2"]
+visible = false
+margin_left = 4.0
+margin_top = 32.0
+margin_right = 44.0
+margin_bottom = 56.0
+
+[node name="GraphEdit" type="GraphEdit" parent="."]
+margin_left = 124.0
+margin_top = 310.0
+margin_right = 361.0
+margin_bottom = 544.0
+scroll_offset = Vector2( -112, -40 )
+
+[node name="HSlider" type="HSlider" parent="."]
+margin_left = 125.0
+margin_top = 541.0
+margin_right = 973.0
+margin_bottom = 627.0
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+margin_left = 130.0
+margin_top = 558.0
+margin_right = 966.0
+margin_bottom = 575.0

@@ -1,0 +1,27 @@
+[gd_scene format=2]
+
+[node name="Label" type="Label"]
+margin_left = 295.0
+margin_top = 184.0
+margin_right = 538.0
+margin_bottom = 269.0
+text = "Hello World!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="."]
+anchor_top = 0.647
+anchor_bottom = 0.647
+margin_left = 0.999985
+margin_top = 2.005
+margin_right = 186.0
+margin_bottom = 62.005
+
+[node name="Button" type="Button" parent="."]
+anchor_right = 0.918
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = 154.0
+margin_right = -12.074
+margin_bottom = 89.0
