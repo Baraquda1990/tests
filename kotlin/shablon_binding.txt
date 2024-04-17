@@ -1,0 +1,16 @@
+прописать в MainActivity
+lateinit var bindingClass: ActivityMainBinding
+
+прописать в onecreate
+        bindingClass=ActivityMainBinding.inflate(layoutInflater)
+        setContentView(bindingClass.root)
+
+прописать в build.grandle.kts
+    buildFeatures{
+        //noinspection DataBindingWithoutKapt
+        dataBinding = true
+        viewBinding = true
+    }
+
+использовать
+bindingClass.textView.text="Its work"

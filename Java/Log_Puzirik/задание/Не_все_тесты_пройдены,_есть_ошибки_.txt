@@ -1,0 +1,337 @@
+Не все тесты пройдены, есть ошибки :(
+
+
+Количество затраченных попыток: 2
+
+Время выполнения: 35.948519 сек
+
+Общая статистика
+Всего тестов: 3. Пройдено: 2. Не пройдено: 1.
+
+Подробную информацию по каждому тесту смотрите ниже.
+
+Тест 1
+Тест пройден успешно ✓
+
+Формулировка:
+
+* Аргументы, передаваемые в метод/функцию:
+
+
+'9, 4, 8, 3, 1'
+
+
+* Итоговый код для проверки.
+
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.Arrays;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+class BubbleSort {
+    private static File log;
+    private static FileWriter fileWriter;
+
+    public static void sort(int[] mas) {
+
+
+        String pattern = "yyyy-MM-dd hh:mm";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String date = simpleDateFormat.format(new Date());
+        int n=0;
+        try{
+            FileWriter log=new FileWriter("log.txt");
+            int i=0;
+            int j=0;
+            int k=mas.length;
+            while(i<k) {
+                while (j<k-1-i) {
+                    int vrem = 0;
+                    if (mas[j] > mas[j + 1]) {
+                        vrem = mas[j + 1];
+                        mas[j + 1] = mas[j];
+                        mas[j] = vrem;
+                    }
+                    j++;
+                }
+                log.write(date+" "+"[");
+                n=0;
+                while(n<mas.length){
+                    if(n!=mas.length && n!=0){
+                        log.write(", ");
+                    }
+                    log.write(String.valueOf(mas[n]));
+                    if(n==mas.length-1){
+                        log.write("]\n");
+                    }
+                    n++;
+                }
+                j = 0;
+                i++;
+            }
+            log.close();
+        }catch(IOException e){
+            System.out.println("Ошибка при записи в файл: " + e.getMessage());
+
+        }
+    }
+}
+
+// Не удаляйте этот класс - он нужен для вывода результатов на экран и проверки
+public class Printer{
+    public static void main(String[] args) {
+        int[] arr = {};
+
+        if (args.length == 0) {
+            // При отправке кода на Выполнение, вы можете варьировать эти параметры
+            arr = new int[]{9, 4, 8, 3, 1};
+        }
+        else{
+            arr = Arrays.stream(args[0].split(", "))
+                    .mapToInt(Integer::parseInt)
+                    .toArray();
+        }
+
+        BubbleSort ans = new BubbleSort();
+        ans.sort(arr);
+
+        try (BufferedReader br = new BufferedReader(new FileReader("log.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+} // Проверяем решение
+Тест 2
+Тест не пройден ✗
+
+Формулировка:
+
+* Аргументы, передаваемые в метод/функцию:
+
+
+'9, 3, 4, 8, 2, 5, 7, 1, 6, 10'
+
+
+* Итоговый код для проверки.
+
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.Arrays;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+class BubbleSort {
+    private static File log;
+    private static FileWriter fileWriter;
+
+    public static void sort(int[] mas) {
+
+
+        String pattern = "yyyy-MM-dd hh:mm";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String date = simpleDateFormat.format(new Date());
+        int n=0;
+        try{
+            FileWriter log=new FileWriter("log.txt");
+            int i=0;
+            int j=0;
+            int k=mas.length;
+            while(i<k) {
+                while (j<k-1-i) {
+                    int vrem = 0;
+                    if (mas[j] > mas[j + 1]) {
+                        vrem = mas[j + 1];
+                        mas[j + 1] = mas[j];
+                        mas[j] = vrem;
+                    }
+                    j++;
+                }
+                log.write(date+" "+"[");
+                n=0;
+                while(n<mas.length){
+                    if(n!=mas.length && n!=0){
+                        log.write(", ");
+                    }
+                    log.write(String.valueOf(mas[n]));
+                    if(n==mas.length-1){
+                        log.write("]\n");
+                    }
+                    n++;
+                }
+                j = 0;
+                i++;
+            }
+            log.close();
+        }catch(IOException e){
+            System.out.println("Ошибка при записи в файл: " + e.getMessage());
+
+        }
+    }
+}
+
+// Не удаляйте этот класс - он нужен для вывода результатов на экран и проверки
+public class Printer{
+    public static void main(String[] args) {
+        int[] arr = {};
+
+        if (args.length == 0) {
+            // При отправке кода на Выполнение, вы можете варьировать эти параметры
+            arr = new int[]{9, 4, 8, 3, 1};
+        }
+        else{
+            arr = Arrays.stream(args[0].split(", "))
+                    .mapToInt(Integer::parseInt)
+                    .toArray();
+        }
+
+        BubbleSort ans = new BubbleSort();
+        ans.sort(arr);
+
+        try (BufferedReader br = new BufferedReader(new FileReader("log.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+} // Проверяем решение
+
+
+Ожидаемый ответ:
+
+2024-04-16 12:13 [3, 4, 8, 2, 5, 7, 1, 6, 9, 10]
+2024-04-16 12:13 [3, 4, 2, 5, 7, 1, 6, 8, 9, 10]
+2024-04-16 12:13 [3, 2, 4, 5, 1, 6, 7, 8, 9, 10]
+2024-04-16 12:13 [2, 3, 4, 1, 5, 6, 7, 8, 9, 10]
+2024-04-16 12:13 [2, 3, 1, 4, 5, 6, 7, 8, 9, 10]
+2024-04-16 12:13 [2, 1, 3, 4, 5, 6, 7, 8, 9, 10]
+2024-04-16 12:13 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+2024-04-16 12:13 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+Ваш ответ:
+
+2024-04-16 12:13 [3, 4, 8, 2, 5, 7, 1, 6, 9, 10]
+2024-04-16 12:13 [3, 4, 2, 5, 7, 1, 6, 8, 9, 10]
+2024-04-16 12:13 [3, 2, 4, 5, 1, 6, 7, 8, 9, 10]
+2024-04-16 12:13 [2, 3, 4, 1, 5, 6, 7, 8, 9, 10]
+2024-04-16 12:13 [2, 3, 1, 4, 5, 6, 7, 8, 9, 10]
+2024-04-16 12:13 [2, 1, 3, 4, 5, 6, 7, 8, 9, 10]
+2024-04-16 12:13 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+2024-04-16 12:13 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+2024-04-16 12:13 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+2024-04-16 12:13 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+Тест 3
+Тест пройден успешно ✓
+
+Формулировка:
+
+* Аргументы, передаваемые в метод/функцию:
+
+
+'10, 9, 8, 7, 6, 5, 4, 3, 2, 1'
+
+
+* Итоговый код для проверки.
+
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.Arrays;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+class BubbleSort {
+    private static File log;
+    private static FileWriter fileWriter;
+
+    public static void sort(int[] mas) {
+
+
+        String pattern = "yyyy-MM-dd hh:mm";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String date = simpleDateFormat.format(new Date());
+        int n=0;
+        try{
+            FileWriter log=new FileWriter("log.txt");
+            int i=0;
+            int j=0;
+            int k=mas.length;
+            while(i<k) {
+                while (j<k-1-i) {
+                    int vrem = 0;
+                    if (mas[j] > mas[j + 1]) {
+                        vrem = mas[j + 1];
+                        mas[j + 1] = mas[j];
+                        mas[j] = vrem;
+                    }
+                    j++;
+                }
+                log.write(date+" "+"[");
+                n=0;
+                while(n<mas.length){
+                    if(n!=mas.length && n!=0){
+                        log.write(", ");
+                    }
+                    log.write(String.valueOf(mas[n]));
+                    if(n==mas.length-1){
+                        log.write("]\n");
+                    }
+                    n++;
+                }
+                j = 0;
+                i++;
+            }
+            log.close();
+        }catch(IOException e){
+            System.out.println("Ошибка при записи в файл: " + e.getMessage());
+
+        }
+    }
+}
+
+// Не удаляйте этот класс - он нужен для вывода результатов на экран и проверки
+public class Printer{
+    public static void main(String[] args) {
+        int[] arr = {};
+
+        if (args.length == 0) {
+            // При отправке кода на Выполнение, вы можете варьировать эти параметры
+            arr = new int[]{9, 4, 8, 3, 1};
+        }
+        else{
+            arr = Arrays.stream(args[0].split(", "))
+                    .mapToInt(Integer::parseInt)
+                    .toArray();
+        }
+
+        BubbleSort ans = new BubbleSort();
+        ans.sort(arr);
+
+        try (BufferedReader br = new BufferedReader(new FileReader("log.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+} // Проверяем решение
