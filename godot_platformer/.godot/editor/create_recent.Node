@@ -1,7 +1,12 @@
-AnimatedSprite2D
+Label
+CanvasLayer
 CollisionShape2D
+Area2D
+AnimatedSprite2D
 CharacterBody2D
+Node2D
+Camera2D
+TileMap
 ParallaxLayer
 ParallaxBackground
-Label
 Button

@@ -1,6 +1,8 @@
-res://menu.tscn
-res://menu.gd
 res://lavel.tscn
-res://bg.tscn
 res://bg.gd
+res://menu.tscn
+res://bg.tscn
 res://player.tscn
+res://player.gd
+res://skeleton.tscn
+res://skeleton.gd
