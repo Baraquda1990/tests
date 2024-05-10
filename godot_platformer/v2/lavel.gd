@@ -9,14 +9,14 @@ var state=MORNING
 @onready var light=$DirectionalLight2D
 @onready var point_light1=$PointLight2D
 @onready var point_light2=$PointLight2D2
+@onready var day_text=$CanvasLayer/day_text
+@onready var anim_player=$CanvasLayer/AnimationPlayer
+var day_count:int
 func _ready():
 	light.enabled=true
-func _process(delta):
-	match state:
-		MORNING:
-			morning_state()
-		EVENING:
-			evening_state()
+	day_count=1
+	set_day_text()
+	day_in_out()
 func morning_state():
 	var tween=get_tree().create_tween()
 	tween.tween_property(light,"energy",0.2,20)
@@ -32,6 +32,22 @@ func evening_state():
 	var tween3=get_tree().create_tween()
 	tween3.tween_property(point_light2,"energy",2.01,20)
 func _on_day_night_timeout():
-	state+=1
-	if state>3:
+	match state:
+		MORNING:
+			morning_state()
+		EVENING:
+			evening_state()
+	
+	if state<=3:
+		state+=1
+	else:
 		state=0
+		day_count+=1
+		set_day_text()
+		day_in_out()
+func day_in_out():
+	anim_player.play("day_in")
+	await get_tree().create_timer(3).timeout
+	anim_player.play("day_out")
+func set_day_text():
+	day_text.text="day: "+str(day_count)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=102 format=3 uid="uid://ddpgr53noia8s"]
+[gd_scene load_steps=103 format=3 uid="uid://ddpgr53noia8s"]
 
 [ext_resource type="Texture2D" uid="uid://det7eux1t8htf" path="res://oak_woods_v1.0/character/char_blue.png" id="1_6vnec"]
 [ext_resource type="Script" path="res://player.gd" id="1_d7hqs"]
 [ext_resource type="Texture2D" uid="uid://cdvueg8fiophy" path="res://oak_woods_v1.0/char_blue_1.png" id="2_fyeld"]
 [ext_resource type="Texture2D" uid="uid://bn66h4pembyh3" path="res://oak_woods_v1.0/char_blue_2.png" id="3_y82tq"]
 [ext_resource type="Texture2D" uid="uid://b4k0cpvx1rapo" path="res://oak_woods_v1.0/circle.png" id="5_3q4q3"]
+[ext_resource type="PackedScene" uid="uid://cm51c56juk8pq" path="res://damage_box.tscn" id="6_dyomh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l2mnt"]
 
@@ -1004,6 +1005,7 @@ _data = {
 polygon = PackedVector2Array(-6, 11, 8, 11, 9, 14, -7, 14)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_d7hqs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -1037,3 +1039,9 @@ texture = ExtResource("5_3q4q3")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_n32qv")
+
+[node name="attack_direction" type="Node2D" parent="."]
+
+[node name="damage_box" parent="attack_direction" instance=ExtResource("6_dyomh")]
+
+[editable path="attack_direction/damage_box"]

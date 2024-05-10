@@ -22,7 +22,10 @@ var state=MOVE
 var run_speed=1
 var combo=false
 var attack_cooldown=false
+var player_pos
 func _physics_process(delta):
+	player_pos=self.position
+	Global.emit_signal("player_position_update",player_pos)
 	match state:
 		MOVE:
 			move_state()
