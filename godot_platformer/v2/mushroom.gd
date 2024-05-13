@@ -20,6 +20,7 @@ const JUMP_VELOCITY = -400.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var player
 var direction
+var damage=20
 func _ready():
 	Global.connect("player_position_update",Callable (self,"_on_player_position_update"))
 func _on_player_position_update(player_pos):
@@ -52,3 +53,5 @@ func chase_state():
 	else:
 		sprite.flip_h=false
 		$attack_direction.rotation_degrees=0
+func _on_hitbox_area_entered(area):
+	Global.emit_signal("enemy_attack",damage)

@@ -62,6 +62,8 @@ run={
 2d_physics/layer_1="world"
 2d_physics/layer_2="player"
 2d_physics/layer_3="animals"
+2d_physics/layer_5="player_hurt_box"
+2d_physics/layer_6="enemy_hurt_box"
 
 [rendering]
 

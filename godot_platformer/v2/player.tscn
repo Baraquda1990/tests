@@ -1014,9 +1014,8 @@ shape = SubResource("CapsuleShape2D_l2mnt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -14)
 sprite_frames = SubResource("SpriteFrames_j5evt")
-animation = &"attack2"
+animation = &"damage"
 autoplay = "idle"
-frame = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.4, 2.4)
@@ -1043,5 +1042,17 @@ occluder = SubResource("OccluderPolygon2D_n32qv")
 [node name="attack_direction" type="Node2D" parent="."]
 
 [node name="damage_box" parent="attack_direction" instance=ExtResource("6_dyomh")]
+position = Vector2(2, 0)
+
+[node name="hurtbox" parent="attack_direction/damage_box" index="0"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="hitbox" parent="attack_direction/damage_box" index="1"]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" parent="attack_direction/damage_box/hitbox" index="0"]
+position = Vector2(-7, 0)
 
 [editable path="attack_direction/damage_box"]

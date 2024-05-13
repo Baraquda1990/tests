@@ -1455,6 +1455,12 @@ libraries = {
 "": SubResource("AnimationLibrary_ute5h")
 }
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 23.0
+offset_top = 101.0
+offset_right = 63.0
+offset_bottom = 141.0
+
 [node name="day_night" type="Timer" parent="."]
 wait_time = 20.0
 autostart = true

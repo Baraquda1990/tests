@@ -5,7 +5,9 @@ enum{
 	ATTACK2,
 	ATTACK3,
 	BLOCK,
-	SLIDE
+	SLIDE,
+	DAMAGE,
+	DEATH
 }
 
 const SPEED = 150.0
@@ -39,6 +41,10 @@ func _physics_process(delta):
 			block_state()
 		SLIDE:
 			slide_state()
+		DAMAGE:
+			damage_state()
+		DEATH:
+			death_state()
 		
 	# Add the gravity.
 	if not is_on_floor():
@@ -46,15 +52,9 @@ func _physics_process(delta):
 
 	if velocity.y>0:
 		anim_player.play("fall")
-	if health<=0:
-		health=0
-		anim_player.play("death")
-		await  anim_player.animation_finished
-		queue_free()
-		get_tree().change_scene_to_file("res://menu.tscn")
-
 	move_and_slide()
-
+func _ready():
+	Global.connect("enemy_attack",Callable(self,"_on_damage"))
 func move_state():
 	var direction = Input.get_axis("left", "right")
 	if direction:
@@ -118,3 +118,22 @@ func attack_freez():
 	attack_cooldown=true
 	await get_tree().create_timer(0.5).timeout
 	attack_cooldown=false
+func damage_state():
+	velocity.x=0
+	anim.play("damage")
+	await anim.animation_finished
+	state=MOVE
+func _on_damage(enemy_damage):
+	health-=enemy_damage
+	if health<=0:
+		health=0
+		state=DEATH
+	else:
+		state=DAMAGE
+	print(health)
+func death_state():
+	velocity.x=0
+	anim.play("death")
+	await anim.animation_finished
+	queue_free()
+	get_tree().change_scene_to_file("res://menu.tscn")
