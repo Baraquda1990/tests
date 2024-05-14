@@ -1,13 +1,13 @@
-res://menu.tscn
+res://lavel.tscn
 res://bg.gd
+res://menu.tscn
 res://bg.tscn
 res://skeleton.tscn
 res://gold.tscn
-res://lavel.tscn
 res://player.tscn
 res://mushroom.tscn
 res://shop.tscn
 res://damage_box.tscn
-res://global.gd
-res://mushroom.gd
 res://player.gd
+res://lavel.gd
+res://global.gd

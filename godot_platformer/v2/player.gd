@@ -1,4 +1,7 @@
 extends CharacterBody2D
+
+signal healtc_change(new_health)
+
 enum{
 	MOVE,
 	ATTACK,
@@ -25,6 +28,8 @@ var run_speed=1
 var combo=false
 var attack_cooldown=false
 var player_pos
+var max_health=120
+
 func _physics_process(delta):
 	player_pos=self.position
 	Global.emit_signal("player_position_update",player_pos)
@@ -55,6 +60,7 @@ func _physics_process(delta):
 	move_and_slide()
 func _ready():
 	Global.connect("enemy_attack",Callable(self,"_on_damage"))
+	health=max_health
 func move_state():
 	var direction = Input.get_axis("left", "right")
 	if direction:
@@ -124,16 +130,26 @@ func damage_state():
 	await anim.animation_finished
 	state=MOVE
 func _on_damage(enemy_damage):
+	if state==BLOCK:
+		enemy_damage/=2
+	elif state==SLIDE:
+		enemy_damage=0
+	else:
+		state=DAMAGE
 	health-=enemy_damage
 	if health<=0:
 		health=0
 		state=DEATH
-	else:
-		state=DAMAGE
-	print(health)
+	#else:
+	#	state=DAMAGE
+	emit_signal("healtc_change",health)
 func death_state():
 	velocity.x=0
 	anim.play("death")
 	await anim.animation_finished
 	queue_free()
 	get_tree().change_scene_to_file("res://menu.tscn")
+
+
+func _on_hitbox_area_entered(area):
+	Global.emit_signal("player_atack",player_)
