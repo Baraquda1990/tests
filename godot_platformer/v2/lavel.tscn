@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c386tnjuh1np2"]
+[gd_scene load_steps=22 format=3 uid="uid://c386tnjuh1np2"]
 
 [ext_resource type="PackedScene" uid="uid://ddpgr53noia8s" path="res://player.tscn" id="1_6raox"]
 [ext_resource type="Script" path="res://lavel.gd" id="1_8cusx"]
@@ -11,8 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://d2fcmddkiekgn" path="res://mushroom.tscn" id="5_co55d"]
 [ext_resource type="PackedScene" uid="uid://mj4jlg55eyx6" path="res://gold.tscn" id="7_rfita"]
 [ext_resource type="Texture2D" uid="uid://b4k0cpvx1rapo" path="res://oak_woods_v1.0/circle.png" id="10_wwpwl"]
-[ext_resource type="Texture2D" uid="uid://bfmc06c2ckj57" path="res://oak_woods_v1.0/progress_bar/u.png" id="11_4lls3"]
-[ext_resource type="Texture2D" uid="uid://xglfmgw8sv0s" path="res://oak_woods_v1.0/progress_bar/p.png" id="12_fl77d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rmaos"]
 texture = ExtResource("5_a8nms")
@@ -1277,7 +1275,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	text= \"hp:\"+str($\"../../player/Player\".health)
+	#text= \"hp:\"+str($\"../../player/Player\".health)
+	pass
 "
 
 [sub_resource type="GDScript" id="GDScript_2biph"]
@@ -1457,17 +1456,6 @@ libraries = {
 "": SubResource("AnimationLibrary_ute5h")
 }
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
-modulate = Color(1, 1, 1, 0.780392)
-offset_left = 23.0
-offset_top = 101.0
-offset_right = 117.0
-offset_bottom = 110.0
-value = 50.0
-nine_patch_stretch = true
-texture_under = ExtResource("11_4lls3")
-texture_progress = ExtResource("12_fl77d")
-
 [node name="day_night" type="Timer" parent="."]
 wait_time = 20.0
 autostart = true
@@ -1492,6 +1480,5 @@ texture = ExtResource("10_wwpwl")
 position = Vector2(0, 9)
 occluder = SubResource("OccluderPolygon2D_b7ww6")
 
-[connection signal="healtc_change" from="player/Player" to="." method="_on_player_healtc_change"]
 [connection signal="timeout" from="coins/Timer" to="coins" method="_on_timer_timeout"]
 [connection signal="timeout" from="day_night" to="." method="_on_day_night_timeout"]

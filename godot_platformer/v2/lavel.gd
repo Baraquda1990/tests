@@ -11,12 +11,9 @@ var state=MORNING
 @onready var point_light2=$PointLight2D2
 @onready var day_text=$CanvasLayer/day_text
 @onready var anim_player=$CanvasLayer/AnimationPlayer
-@onready var health_bar=$CanvasLayer/TextureProgressBar
 @onready var player=$player/Player
 var day_count:int
 func _ready():
-	health_bar.max_value=player.max_health
-	health_bar.value=health_bar.max_value
 	light.enabled=true
 	day_count=1
 	set_day_text()
@@ -55,5 +52,3 @@ func day_in_out():
 	anim_player.play("day_out")
 func set_day_text():
 	day_text.text="day: "+str(day_count)
-func _on_player_healtc_change(new_health):
-	health_bar.value=new_health

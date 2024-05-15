@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://ddpgr53noia8s"]
+[gd_scene load_steps=108 format=3 uid="uid://ddpgr53noia8s"]
 
 [ext_resource type="Texture2D" uid="uid://det7eux1t8htf" path="res://oak_woods_v1.0/character/char_blue.png" id="1_6vnec"]
 [ext_resource type="Script" path="res://player.gd" id="1_d7hqs"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bn66h4pembyh3" path="res://oak_woods_v1.0/char_blue_2.png" id="3_y82tq"]
 [ext_resource type="Texture2D" uid="uid://b4k0cpvx1rapo" path="res://oak_woods_v1.0/circle.png" id="5_3q4q3"]
 [ext_resource type="PackedScene" uid="uid://cm51c56juk8pq" path="res://damage_box.tscn" id="6_dyomh"]
+[ext_resource type="PackedScene" uid="uid://cfa7s5xq0oprw" path="res://stats.tscn" id="7_la75x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l2mnt"]
 
@@ -627,6 +628,18 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_c8oib"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("attack_direction/damage_box/hitbox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_l7aot"]
 length = 0.6
@@ -666,6 +679,32 @@ tracks/2/keys = {
 "values": [{
 "args": [],
 "method": &"combo1"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("attack_direction/damage_box/hitbox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("stats")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stamina_consumtion"
 }]
 }
 
@@ -709,6 +748,32 @@ tracks/2/keys = {
 "method": &"combo1"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("attack_direction/damage_box/hitbox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("stats")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stamina_consumtion"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_jptyw"]
 length = 0.8
@@ -735,6 +800,32 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["attack3"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("attack_direction/damage_box/hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("stats")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stamina_consumtion"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_ddqay"]
@@ -956,6 +1047,20 @@ tracks/1/keys = {
 "update": 1,
 "values": ["slide"]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("stats")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stamina_consumtion"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_xsujt"]
 loop_mode = 1
@@ -1004,6 +1109,96 @@ _data = {
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_n32qv"]
 polygon = PackedVector2Array(-6, 11, 8, 11, 9, 14, -7, 14)
 
+[sub_resource type="Animation" id="Animation_ut4i4"]
+resource_name = "damage"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("health_text:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-21, -35), Vector2(-21, -40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("health_text:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.878431, 0.0235294, 0.258824, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_drakf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("health_text:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-21, -35)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("health_text:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0s7hm"]
+resource_name = "health"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("health_text:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-21, -35), Vector2(-21, -40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("health_text:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.87451, 0, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3h64t"]
+_data = {
+"RESET": SubResource("Animation_drakf"),
+"damage": SubResource("Animation_ut4i4"),
+"health": SubResource("Animation_0s7hm")
+}
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_d7hqs")
@@ -1014,9 +1209,8 @@ shape = SubResource("CapsuleShape2D_l2mnt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -14)
 sprite_frames = SubResource("SpriteFrames_j5evt")
-animation = &"death"
+animation = &"block"
 autoplay = "idle"
-frame = 11
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.4, 2.4)
@@ -1056,6 +1250,24 @@ collision_mask = 32
 [node name="CollisionShape2D" parent="attack_direction/damage_box/hitbox" index="0"]
 position = Vector2(-7, 0)
 
+[node name="stats" parent="." instance=ExtResource("7_la75x")]
+
+[node name="health_text" type="Label" parent="."]
+offset_left = -21.0
+offset_top = -35.0
+offset_right = 19.0
+offset_bottom = -12.0
+theme_override_font_sizes/font_size = 8
+text = "20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="health_anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3h64t")
+}
+
 [connection signal="area_entered" from="attack_direction/damage_box/hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="no_stamina" from="stats" to="." method="_on_stats_no_stamina"]
 
 [editable path="attack_direction/damage_box"]
