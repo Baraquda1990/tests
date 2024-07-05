@@ -1,0 +1,92 @@
+{
+	"name": "Player",
+	"plugin-id": "Sprite",
+	"sid": 925968795203355,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "HP",
+			"type": "number",
+			"desc": "",
+			"sid": 763032124035323
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "EightDir",
+			"name": "8Direction",
+			"sid": 609301445685046
+		},
+		{
+			"behaviorId": "bound",
+			"name": "BoundToLayout",
+			"sid": 769459738717414
+		},
+		{
+			"behaviorId": "scrollto",
+			"name": "ScrollTo",
+			"sid": 436068598875272
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 419414977020588
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4512632,
+						"collisionPoly": {
+							"points": [
+								0.15625,
+								0.15625,
+								0.5,
+								0.03125,
+								0.765625,
+								0.21875,
+								0.984375,
+								0.5,
+								0.765625,
+								0.765625,
+								0.5,
+								0.953125,
+								0.15625,
+								0.828125,
+								0.03125,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Image Point 1",
+								"x": 1.109375,
+								"y": 0.5
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 317133651136821,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

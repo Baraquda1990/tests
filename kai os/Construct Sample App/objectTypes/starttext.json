@@ -1,0 +1,15 @@
+{
+	"name": "StartText",
+	"plugin-id": "Text",
+	"sid": 639703212930182,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 561256897012095
+		}
+	],
+	"effectTypes": []
+}
