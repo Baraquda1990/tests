@@ -1,0 +1,14 @@
+name: "level_1"
+instances {
+  id: "level_1"
+  prototype: "/main/level.go"
+}
+scale_along_z: 0
+embedded_instances {
+  id: "board"
+  data: "components {\n"
+  "  id: \"tiles\"\n"
+  "  component: \"/main/level_1/level_1.tilemap\"\n"
+  "}\n"
+  ""
+}

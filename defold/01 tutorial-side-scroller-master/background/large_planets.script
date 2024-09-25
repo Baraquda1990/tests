@@ -1,0 +1,13 @@
+local speed = -60
+
+function update(self, dt)
+	local p = go.get_position()
+	-- применить скорость
+	p.x = p.x + speed * dt
+	-- сбрасывать облака в крайнее правое положение, когда они достигают 
+	-- крайнего левого положения, чтобы создать бесконечную прокрутку
+	if p.x <= -1280 * 2 then
+		p.x = 1280 * 2
+	end
+	go.set_position(p)
+end
