@@ -29,11 +29,19 @@ class MainActivity : AppCompatActivity() {
             val normalArray = ArrayList<String>()
             val niceArray = ArrayList<String>()
             val excellentArray = ArrayList<String>()
-        for ((index, grade) in gradeArray.withIndex()) {
+        /*for ((index, grade) in gradeArray.withIndex()) {
             if (grade in bad) badArray.add("Ученик: ${nameArray[index]} – $grade")
             if (grade in normal) normalArray.add("Ученик: ${nameArray[index]} – $grade")
             if (grade in nice) niceArray.add("Ученик: ${nameArray[index]} – $grade")
             if (grade == excellent) excellentArray.add("Ученик: ${nameArray[index]} – $grade")
+        }*/
+        for((index,name) in nameArray.withIndex()){
+            when(gradeArray[index]){
+                in bad -> badArray.add("Ученик: $name – $gradeArray[index]")
+                in normal -> normalArray.add("Ученик: $name – $gradeArray[index]")
+                in nice -> niceArray.add("Ученик: $name – $gradeArray[index]")
+                excellent -> excellentArray.add("Ученик: $name – $gradeArray[index]")
+            }
         }
         badArray.forEach(){
             Log.d("MyLog",it)
