@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:orderInCategory="1"
+        android:title="Item 1"
+        android:id="@+id/item1"
+        android:icon="@drawable/baseline_airport_shuttle_24"
+        />
+    <item
+        android:orderInCategory="2"
+        android:title="Item 2"
+        android:id="@+id/item2"
+        android:icon="@drawable/baseline_access_time_filled_24"
+        />
+    <item
+        android:orderInCategory="3"
+        android:title="Item 3"
+        android:id="@+id/item3"
+        android:icon="@drawable/baseline_add_circle_outline_24"
+        />
+    <item
+        android:orderInCategory="4"
+        android:title="Item 4"
+        android:id="@+id/item4"
+        android:icon="@drawable/baseline_accessibility_24"
+        />
+
+</menu>

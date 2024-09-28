@@ -1,3 +1,5 @@
 package com.example.a08_recyclerview
 
-data class Plains(val imageId:Int,val title:String)
+import java.io.Serializable
+
+data class Plains(val imageId:Int,val title:String, val desc:String):Serializable
