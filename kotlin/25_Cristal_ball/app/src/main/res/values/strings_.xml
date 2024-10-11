@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="array_string">
+        <item>Будешь богатым</item>
+        <item>Будешь счастливым</item>
+        <item>Станешь профессионалом</item>
+        <item>Будешь крутым программистом</item>
+        <item>Ты просто ГРАНДМАСТЕР!</item>
+    </string-array>
+</resources>
