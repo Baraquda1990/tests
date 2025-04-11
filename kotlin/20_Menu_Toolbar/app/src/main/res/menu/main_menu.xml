@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="Sync"
+        android:id="@+id/sync"
+        android:icon="@drawable/baseline_sync_24"
+        app:showAsAction="always"
+        android:orderInCategory="1"
+    />
+    <item
+        android:title="Search"
+        android:id="@+id/search"
+        android:icon="@drawable/baseline_bluetooth_searching_24"
+        app:showAsAction="always"
+        android:orderInCategory="2"
+        />
+    <item
+        android:title="Save"
+        android:id="@+id/save"
+        android:icon="@drawable/baseline_battery_saver_24"
+        app:showAsAction="always"
+        android:orderInCategory="3"
+        />
+    <item
+        android:title="Delete"
+        android:id="@+id/delete"
+        android:icon="@drawable/baseline_auto_delete_24"
+        app:showAsAction="always"
+        android:orderInCategory="4"
+        />
+</menu>

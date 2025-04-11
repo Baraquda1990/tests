@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/im_avatar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="116dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dula" />
+
+    <Button
+        android:id="@+id/b_avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="236dp"
+        android:onClick="clickAvatar"
+        android:text="@string/avatar"
+        app:layout_constraintEnd_toEndOf="@+id/im_avatar"
+        app:layout_constraintStart_toStartOf="@+id/im_avatar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/ed_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/login"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/b_avatar" />
+
+    <EditText
+        android:id="@+id/ed_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/ed_login"
+        app:layout_constraintStart_toStartOf="@+id/ed_login"
+        app:layout_constraintTop_toBottomOf="@+id/ed_login" />
+
+    <EditText
+        android:id="@+id/ed_name1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/name1"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/ed_password"
+        app:layout_constraintStart_toStartOf="@+id/ed_password"
+        app:layout_constraintTop_toBottomOf="@+id/ed_password"
+        tools:visibility="visible" />
+
+    <EditText
+        android:id="@+id/ed_name2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/name2"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/ed_name1"
+        app:layout_constraintStart_toStartOf="@+id/ed_name1"
+        app:layout_constraintTop_toBottomOf="@+id/ed_name1"
+        tools:visibility="visible" />
+
+    <EditText
+        android:id="@+id/ed_name3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/name3"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/ed_name2"
+        app:layout_constraintStart_toStartOf="@+id/ed_name2"
+        app:layout_constraintTop_toBottomOf="@+id/ed_name2"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/b_done"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:onClick="onClickDone"
+        android:text="@string/done"
+        app:layout_constraintEnd_toEndOf="@+id/ed_password"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/ed_password"
+        app:layout_constraintTop_toBottomOf="@+id/ed_name3" />
+</androidx.constraintlayout.widget.ConstraintLayout>
