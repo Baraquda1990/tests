@@ -9,3 +9,7 @@ caption{
 .calendar{
     float: left;
 }
+.changed{
+    background-color: yellow;
+    color:black;
+}

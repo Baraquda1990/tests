@@ -5,9 +5,10 @@ import ButtonDay from './ButtonDay.jsx'
 import CaptionMonth from './CaptionMonth.jsx'
 import {ButtonLeftSetMonth,ButtonRightSetMonth} from './ButtonSetMonth.jsx'
 
-export default function Calendar({setD,setM}){
+export default function Calendar({setD,setM,data}){
     const [month,setMonth]=useState(new Date().getMonth())
     const [daysMonth,setDaysMonth]=useState(getDaysMonth(new Date().getMonth()))
+    let changedDays=data.map(d=>({day:d.day,month:d.month}))
     function changeMonth(right) {
         let m=right
             ?(month < 11 ? month + 1 : month)
@@ -48,7 +49,7 @@ export default function Calendar({setD,setM}){
                         <tr key={i}>
                             {week.map((date,j)=>(
                                 (date!==null)
-                                ?<td key={date}><button onClick={()=>{setD(date);setM(month);}} className="day">{date}</button></td>
+                                ?<td key={date} ><button className={changedDays.some(d=>d.day===date && d.month === month)? "changed" : ""} onClick={()=>{setD(date);setM(month);}}>{date}</button></td>
                                 :<td key={'n'+j}><ButtonDay></ButtonDay></td>
                                 
                             ))}
