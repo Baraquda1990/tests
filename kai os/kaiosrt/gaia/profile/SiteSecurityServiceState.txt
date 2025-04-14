@@ -1,4 +1,0 @@
-fonts.googleapis.com:HSTS	0	19909	1751702206196,1,0
-blocklist.addons.mozilla.org:HSTS	0	19909	1720155561405,1,0
-aus5.mozilla.org:HSTS	0	19909	1751691381398,1,0
-ftp.mozilla.org:HSTS	0	19909	1751690458407,1,0

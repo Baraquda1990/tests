@@ -1,2 +1,0 @@
-https://www.kaiads.com/publishers/sdk.html#events
-https://developer.kaiostech.com/docs/development/run-and-debug

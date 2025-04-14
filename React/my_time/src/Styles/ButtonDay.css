@@ -1,0 +1,16 @@
+.day{
+    width: 6dvw;
+    height: 5dvw;
+    display: block;
+    font-size: 2dvw;
+    border-radius: 10px;
+    background-color: aliceblue;
+    border:1px solid blueviolet;
+    color:cornflowerblue;
+}
+.day:hover{
+    background-color: aqua;
+}
+.weekend{
+    background-color: brown;
+}
