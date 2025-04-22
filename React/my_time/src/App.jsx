@@ -3,6 +3,7 @@ import './Styles/App.css'
 import Calendar from './Componets/Calendar'
 import NoteSetter from './Componets/NoteSetter'
 import Events from './Componets/Events'
+import DayTimeline from './Componets/DayTimeline'
 
 export default function App() {
   const [month, setMonth] = useState(0)
@@ -17,11 +18,11 @@ export default function App() {
     }
   }, [])
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (day !== 0) {
       setShowNote(true)
     }
-  }, [day, month])
+  }, [day, month])*/
 
   const handleSaveNote = (note) => {
     //console.log("Сохранили заметку:", note)
@@ -30,11 +31,12 @@ export default function App() {
     setData(newData)
     localStorage.setItem('data', JSON.stringify(newData))
   }
-
   return (
     <>
-      <Calendar setD={setDay} setM={setMonth} data={data}/>
-      <Events data={data} setData={setData}/>
+      <Calendar setD={setDay} setM={setMonth} data={data} setShowNote={()=>setShowNote(true)}/>
+      <Events data={data} setData={setData} currentDay={day} currentMonth={month}/>
+      <DayTimeline data={data} setData={setData} currentDay={day} currentMonth={month}/>
+      
       <NoteSetter 
         isOpen={showNote} 
         day={day} 

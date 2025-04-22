@@ -1,0 +1,35 @@
+.hour{
+    padding: 5px;
+    width: 38px;
+    float: left;
+}
+.border{border-left: 2px solid palevioletred;}
+.container{
+    position: relative;
+    width: 1200px;
+}
+
+.eventContainerTimeline{
+    position:absolute;
+    padding-top: 20px;
+    border-left: 1px dashed gray;
+    top:24px;
+}
+.eventTimeline{
+    max-width: 185px;
+    margin-top: 20px;
+    border: 2px solid azure;
+    padding: 20px 30px;
+    border-radius: 20px;
+    border-bottom-left-radius: 0px;
+    background-color: cadetblue;
+}
+.eventTimeline button{
+    position:absolute;
+    bottom:-20px;
+    left: -20px;
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    
+}

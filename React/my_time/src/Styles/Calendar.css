@@ -1,15 +1,52 @@
-caption{
+h3{
     font-size: 3dvw;
-    background-color: aquamarine;
-    border-radius: 20px;
-    padding: 10px 0px;
     color:darkslateblue;
 }
 
 .calendar{
-    float: left;
+    display: flex;
+    justify-content: center;
 }
 .changed{
     background-color: yellow;
     color:black;
+}
+.calendar tr td button{
+    width: 8dvw;
+    height: 5dvw;
+    position: relative;
+}
+.calendarHeader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 10px;
+    background-color: aquamarine;
+    border-radius: 20px;
+    padding: 10px 0px;
+}
+.selected{
+    border:2px solid white;
+}
+.add{
+    position: absolute;
+    display: block;
+    bottom: 0;
+    right: 0;
+    border:1px solid greenyellow;
+    background-color: greenyellow;
+    width: 20px;
+    height: 20px;
+    color:black;
+}
+.countEvents{
+    position: absolute;
+    top:0;
+    right:0;
+    background-color: cadetblue;
+    display: block;
+    width: 20px;
+    height: 20px;
+    color: black;
 }

@@ -14,5 +14,5 @@ let monthAndNumber={
 }
 export default function CaptionMonth({month}){  
         return <>
-        <caption>{monthAndNumber[month]}</caption>
+        <h3>{monthAndNumber[month]}</h3>
         </>}
