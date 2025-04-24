@@ -1,0 +1,9 @@
+npx create-react-app cal-app
+cd cal-app
+npm install -g yarn - устанавливаем менеджер пакета
+npm install --save react-big-calendar
+yarn add react-big-calendar react-datepicker date-fns
+yarn start - запускаем сервер
+
+
+

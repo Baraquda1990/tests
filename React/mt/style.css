@@ -1,0 +1,68 @@
+.content{
+    margin: 0 auto;
+    width: 73dvw;
+    padding: 10px 20px;
+    overflow: hidden;
+}
+.day{
+    width: 6dvw;
+    height: 5dvw;
+    display: block;
+    font-size: 2dvw;
+    border-radius: 10px;
+    background-color: aliceblue;
+    border:1px solid blueviolet;
+}
+.day:hover{
+    background-color: aqua;
+}
+.weekend{
+    background-color: brown;
+}
+caption{
+    font-size: 3dvw;
+    background-color: aquamarine;
+    border-radius: 20px;
+    padding: 10px 0px;
+    color:darkslateblue;
+}
+
+.calendar{
+    float: left;
+}
+
+.events_day{
+    width: 20dvw;
+    float: left;
+    background-color: blue;
+    margin-left: 10px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+}
+
+.event{
+    border:1px solid black;
+    border-radius: 10px;
+    padding: 10px 5px;
+    background-color: bisque;
+    font-size: 1dvw;
+    font-style: italic;
+}
+.manage_events{
+    padding: 10px 0;
+}
+.manage_events .left{
+    float:left;
+}
+.manage_events .right{
+    float:right;
+}
+.manage_events h3{
+    color:wheat;
+    display: inline;
+    font-size: 2dvw;
+}
+.event button{
+    font-size: 1dvw;
+}
