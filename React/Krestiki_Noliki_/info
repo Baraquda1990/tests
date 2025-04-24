@@ -1,0 +1,8 @@
+npm i -g create-react-app Для установки create-react-app или npm install create-react-app@latest
+create-react-app react-intro   Создание реакт приложения
+
+или
+
+https://react.dev/learn/tutorial-tic-tac-toe скачать шаблон
+в дирректории прописать npm install, он установит зависимости 
+npm start для запуска локального сервера.
