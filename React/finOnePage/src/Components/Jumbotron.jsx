@@ -16,30 +16,30 @@ const Jumbotron = () => {
         <Container className='my-5 pt-5'>
         <Row>
             <Col className="text-center text-light">
-              <h3>{'why choose us'.toLocaleUpperCase()}</h3>
+              <h3>{'почему выбирают нас'.toUpperCase()}</h3>
               <br />
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+              Нас выбирают за опыт, профессионализм и индивидуальный подход: мы предлагаем оптимальные решения, 
+              минимизируем риски и обеспечиваем полный цикл поддержки на пути к вашему бизнес-успеху.
               </p>
             </Col>
           </Row>
           <Row className='text-center text-light my-5 pb-5'>
             <Col>
               <h1>2300</h1>
-              <p>invesment planning</p>
+              <p>{'инвестиционное планирование'.toUpperCase()}</p>
             </Col>
             <Col>
               <h1>3250</h1>
-              <p>commodities trading</p>
+              <p>{'торговля сырьевыми товарами'.toUpperCase()}</p>
             </Col>
             <Col>
               <h1>4571</h1>
-              <p>wealth management</p>
+              <p>{'управление активами'.toUpperCase()}</p>
             </Col>
             <Col>
               <h1>5475</h1>
-              <p>happy clients</p>
+              <p>{'счастливые клиенты'.toUpperCase()}</p>
             </Col>
           </Row>
         </Container>

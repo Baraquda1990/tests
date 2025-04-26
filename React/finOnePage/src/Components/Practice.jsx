@@ -5,7 +5,7 @@ import portfolio_3 from '../assets/portfolio3.jpg'
 import portfolio_4 from '../assets/portfolio4.jpg'
 import '../assets/font/font.css'
 import styled from 'styled-components'
-const PracticeWrapper=styled.div`
+const PracticeWrapper=styled.section`
   font-family:'OpenSansBold';
   .slogan{
     font-weight:bold;
@@ -25,7 +25,7 @@ const PracticeWrapper=styled.div`
   }
 `
 export default function Practice(){
-return (<PracticeWrapper><Container className='my-5'>
+return (<PracticeWrapper id="services"><Container className='my-5'>
           <Row>
             <Col className="text-center">
               <h3 className='slogan'>{'наши услуги'.toUpperCase()}</h3>

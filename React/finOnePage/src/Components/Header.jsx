@@ -55,10 +55,22 @@ const WrapContainer=styled(Container)`
             }
         }
 `
-export default function Header(){
-    const buttonStyle={
-
+const WrapMenu=styled.div`
+    font-family:'OpenSansBold';
+    .logo{color:#4a657d;
+            font-size:20pt;
+            line-height:1.5rem;
     }
+    @media (max-width:994px) {
+        .nav-link{
+            font-size:8pt;
+        }
+        .logo{
+            font-size:15pt;
+        }
+    }
+`
+export default function Header(){
     return(
         <>
         <WrapContainer fluid>
@@ -76,21 +88,22 @@ export default function Header(){
         </Row>
         </WrapContainer>
 
+        <WrapMenu>
         <Container>
         <Row className='pb-3 pt-3 align-items-center'>
-            <Col md={2} style={{color:'#4a657d',fontSize:'20pt',fontFamily:'OpenSansBold',lineHeight:'1.5rem'}}>
+            <Col sm={12} md={2} className="logo">
             ТОО Капитал<br/>плюс</Col>
-            <Col md={{span:8,offset:2}} className="d-flex justify-content-end">
+            <Col sm={12} md={{span:8,offset:2}} className="d-flex justify-content-end">
             <Navbar bg="light">
                 <Nav>
-                    <StyledNavLink href="#home" className='px-4'>{'Home'.toUpperCase()}</StyledNavLink>
-                    <StyledNavLink href="#features" className='px-4'>{'About Us'.toUpperCase()}</StyledNavLink>
-                    <StyledNavLink href="#pricing" className='px-4'>{'Page'.toUpperCase()}</StyledNavLink>
-                    <StyledNavLink href="#pricing" className='px-4'>{'Single Page'.toUpperCase()}</StyledNavLink>
-                    <StyledNavLink href="#pricing" className='px-4'>{'Contact'.toUpperCase()}</StyledNavLink>
+                    <StyledNavLink href="#about" className='px-4'>{'О нас'.toUpperCase()}</StyledNavLink>
+                    <StyledNavLink href="#services" className='px-4'>{'Наши услуги'.toUpperCase()}</StyledNavLink>
+                    <StyledNavLink href="#present" className='px-4'>{'Презентация'.toUpperCase()}</StyledNavLink>
+                    <StyledNavLink href="#contacts" className='px-4'>{'Контакты'.toUpperCase()}</StyledNavLink>
                 </Nav>
             </Navbar>
             </Col>            
         </Row>
         </Container>
+        </WrapMenu>
         </>)}

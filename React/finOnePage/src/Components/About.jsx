@@ -1,10 +1,9 @@
-import { Container,Row,Col } from "react-bootstrap"
+import { Container,Row,Col,Button } from "react-bootstrap"
 import leftImg from '../assets/left_img.jpg'
 import styled from "styled-components"
 import '../assets/font/font.css'
-const StyledWrapper = styled.div`
+const StyledWrapper = styled.section`
   .about_img {
-    margin-left: -10vw; /* Уходит влево на 10% от ширины окна */
     transition: margin-left 0.3s ease;
   }
   .slogan{
@@ -18,14 +17,9 @@ const StyledWrapper = styled.div`
     color:#4a657d;
     font-size:15pt;
   }
-  @media (max-width: 1368px) {
-    .about_img {
-      margin-left: -20vw; /* Уходит дальше влево на маленьких экранах */
-    }
-  }
   @media (max-width: 1120px) {
     .about_img {
-      margin-left: -30vw; /* Уходит дальше влево на маленьких экранах */
+      margin-left: -30vw; 
     }
     .slogan{
       font-size:20pt;
@@ -36,45 +30,66 @@ const StyledWrapper = styled.div`
   }
   @media (max-width: 954px) {
     .about_img {
-      margin-left: -50vw; /* Уходит дальше влево на маленьких экранах */
+      margin-left: -50vw; 
     }
   }
   @media (max-width: 767px) {
     .about_img {
-      margin-left: -10vw; /* Уходит дальше влево на маленьких экранах */
+      margin-left: -10vw; 
       width:90dvw
     }
   }
+  @media (min-width: 1184px) {
+    .about_img {
+      margin-left:-20dvw; 
+    }
+  }
+  @media (min-width: 1280px) {
+    .about_img {
+      margin-left:-10dvw; 
+    }
+  }
+  @media (min-width: 1920px) {
+    .about_img {
+      margin-left:-5dvw; 
+    }
+  }
 `
-
+const ContackUs=styled(Button)`
+    &:hover{background-color:#12ab12 !important; color:#fff;}
+    border-radius:none;
+    border:none;
+    color:#fff;
+    @media (max-width: 842px) {
+        font-size:9pt;
+    }
+`
 export default function About(){
 return(
-<StyledWrapper>
-<Container fluid className='my-5 about'>
+<StyledWrapper id='about'>
+<Container fluid className='my-5 about' style={{maxWidth:'1536px'}}>
 <Row className='align-items-center'>
-  <Col md={5} sm={12} xxl={5} className='ps-0'><img src={leftImg} alt="" className="about_img" /></Col>
-  <Col md={7} sm={12} xxl={6} className="px-5">
-    <h1 className="slogan">{'we are consulting company help you in start'.toUpperCase()}</h1>
+  <Col md={5} sm={12} className='img_container'><img src={leftImg} alt="Получите кредит для бизнеса без лишних сложностей" className="about_img" /></Col>
+  <Col md={7} sm={12} className="px-5">
+    <h1 className="slogan">{'Получите кредит для бизнеса без лишних сложностей!'.toUpperCase()}</h1>
     <br/>
     <p className="about_text">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
-    sed do eiusmod tempor incididunt ut labore et dolore magna 
-    aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-    ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-    Duis aute irure dolor in reprehenderit in voluptate velit 
-    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
-    occaecat cupidatat non proident, sunt in culpa qui officia 
-    deserunt mollit anim id est laborum. Sed ut perspiciatis unde 
-    omnis iste natus error sit voluptatem accusantium doloremque 
-    laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore 
-    veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit 
-    aut fugit, sed quia consequuntur magni dolores eos qui ratione 
-    voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem 
-    ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia 
-    non numquam eius modi tempora incidunt ut labore et dolore magnam 
-    aliquam quaerat voluptatem.
+    Если вам нужно финансирование от 50 миллионов тенге, но вы не хотите разбираться с 
+    документами и нюансами оформления — мы поможем! Мы с 6-летним опытом работы в сфере 
+    кредитования возьмём на себя всю работу: подготовим документы, оформим заявку, упакуем 
+    ваш проект и будем сопровождать на каждом этапе до получения средств.
+    Мы помогаем получить кредиты на развитие бизнеса, инвестиции, участие в тендерах и 
+    финансирование через госпрограммы. У нас прозрачная работа без предоплаты.</p>
+    <p className="about_text">Что мы вам гарантируем:</p>
+    <ul className="about_text">
+      <li>Грамотно оформленные документы и бизнес-план.</li>
+      <li>Подбор лучших условий и минимизация рисков.</li>
+      <li>Полное сопровождение до получения средств.</li>
+    </ul>
+    <p className="about_text">Если у вас хорошая кредитная история, стабильная прибыль и залог — запишитесь на 
+    бесплатную консультацию. Мы разберём ваш проект и предложим оптимальные условия.
     </p>
+    <ContackUs className='btn-info me-5' >СВЯЖИТЕСЬ С НАМИ</ContackUs>
   </Col>
 </Row>
 </Container></StyledWrapper>)}

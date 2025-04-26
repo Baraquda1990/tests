@@ -1,8 +1,12 @@
 import { Carousel } from "react-bootstrap"
-import slide from '../assets/home.jpg'
+import slide01 from '../assets/slide_01.jpg'
+import slide02 from '../assets/slide_02.jpg'
+import slide03 from '../assets/slide_03.jpg'
+import slide04 from '../assets/slide_04.jpg'
 import styled from "styled-components"
-
+import '../assets/font/font.css'
 const StyledCarousel=styled(Carousel)`
+  font-family:'OpenSansBold';
   .carousel-indicators{
     button{width:20px;
       height:20px;
@@ -10,10 +14,32 @@ const StyledCarousel=styled(Carousel)`
       background-color:#1f87e4 !important;
     }
   }
+  .carousel-caption{
+    background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,  
+    rgba(255, 255, 255, 1) 20%, 
+    rgba(255, 255, 255, 1) 80%,  
+    rgba(255, 255, 255, 0) 100%  
+  );
+  }
   h5{
     color:#4a657d;
     font-weight: bold;
+    font-size:30pt;
   }
+  p{
+    font-size:15pt;
+  }
+  @media(max-width:630px){
+      h5{
+        font-size:15pt;
+      }
+      p{
+        font-size:12px;
+      }
+  }
+
 `
 
 export default function Slider(){
@@ -22,36 +48,45 @@ return(
 <Carousel.Item>
   <img
     className="d-block w-100"
-    src={slide}
-    alt="First slide"
+    src={slide01}
+    alt="Залоговые кредиты"
   />
   <Carousel.Caption>
-    <h5>{'training company make your dream'.toUpperCase()}</h5>
-    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    <h5>{'Залоговые кредиты'.toUpperCase()}</h5>
+    <p>Залоговые кредиты на бизнес цели (пополнение оборотных средств, инвестиции).</p>
   </Carousel.Caption>
 </Carousel.Item>
 <Carousel.Item>
   <img
     className="d-block w-100"
-    src={slide}
-    alt="Second slide"
+    src={slide02}
+    alt="Рефинансирование залоговых кредитов"
   />
   <Carousel.Caption>
-    <h5>{'training company make your dream'.toUpperCase()}</h5>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <h5>{'Рефинансирование залоговых кредитов'.toUpperCase()}</h5>
+    <p>Рефинансирование залоговых кредитов ранее полученных на бизнес цели.</p>
   </Carousel.Caption>
 </Carousel.Item>
 <Carousel.Item>
   <img
     className="d-block w-100"
-    src={slide}
-    alt="Third slide"
+    src={slide03}
+    alt="Авто кредитование"
   />
   <Carousel.Caption>
-    <h5>{'training company make your dream'.toUpperCase()}</h5>
-    <p>
-      Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-    </p>
+    <h5>{'Авто кредитование'.toUpperCase()}</h5>
+    <p>Авто кредитование (кредиты для покупки спецтехники и грузового автотранспорта).</p>
+  </Carousel.Caption>
+</Carousel.Item>
+<Carousel.Item>
+  <img
+    className="d-block w-100"
+    src={slide04}
+    alt="Бизнес ипотека"
+  />
+  <Carousel.Caption>
+    <h5>{'Бизнес ипотека'.toUpperCase()}</h5>
+    <p>Бизнес ипотека (приобретение коммерческих объектов недвижимости).</p>
   </Carousel.Caption>
 </Carousel.Item>
 </StyledCarousel>)}
