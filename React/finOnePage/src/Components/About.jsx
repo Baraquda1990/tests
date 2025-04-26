@@ -1,15 +1,62 @@
-import { Container,Row,Col,Button } from "react-bootstrap"
+import { Container,Row,Col } from "react-bootstrap"
 import leftImg from '../assets/left_img.jpg'
+import styled from "styled-components"
+import '../assets/font/font.css'
+const StyledWrapper = styled.div`
+  .about_img {
+    margin-left: -10vw; /* Уходит влево на 10% от ширины окна */
+    transition: margin-left 0.3s ease;
+  }
+  .slogan{
+    font-weight:bold;
+    font-family:'OpenSansBold';
+    color:#4a657d;
+    font-size:25pt;
+  }
+  .about_text{
+    font-family:'OpenSansBold';
+    color:#4a657d;
+    font-size:15pt;
+  }
+  @media (max-width: 1368px) {
+    .about_img {
+      margin-left: -20vw; /* Уходит дальше влево на маленьких экранах */
+    }
+  }
+  @media (max-width: 1120px) {
+    .about_img {
+      margin-left: -30vw; /* Уходит дальше влево на маленьких экранах */
+    }
+    .slogan{
+      font-size:20pt;
+    }
+    .about_text{
+      font-size:10pt;
+    }
+  }
+  @media (max-width: 954px) {
+    .about_img {
+      margin-left: -50vw; /* Уходит дальше влево на маленьких экранах */
+    }
+  }
+  @media (max-width: 767px) {
+    .about_img {
+      margin-left: -10vw; /* Уходит дальше влево на маленьких экранах */
+      width:90dvw
+    }
+  }
+`
 
 export default function About(){
 return(
-<Container fluid className='my-5'>
+<StyledWrapper>
+<Container fluid className='my-5 about'>
 <Row className='align-items-center'>
-  <Col className='md-3 ps-0'><img src={leftImg} alt="" /></Col>
-  <Col md={7}>
-    {'we are consulting company help you in start'.toUpperCase()}
+  <Col md={5} sm={12} xxl={5} className='ps-0'><img src={leftImg} alt="" className="about_img" /></Col>
+  <Col md={7} sm={12} xxl={6} className="px-5">
+    <h1 className="slogan">{'we are consulting company help you in start'.toUpperCase()}</h1>
     <br/>
-    <p>
+    <p className="about_text">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
     sed do eiusmod tempor incididunt ut labore et dolore magna 
     aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
@@ -28,7 +75,6 @@ return(
     non numquam eius modi tempora incidunt ut labore et dolore magnam 
     aliquam quaerat voluptatem.
     </p>
-    <Button className='btn-primary'>Our company</Button>
   </Col>
 </Row>
-</Container>)}
+</Container></StyledWrapper>)}

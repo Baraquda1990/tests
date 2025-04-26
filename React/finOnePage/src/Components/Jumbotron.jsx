@@ -2,13 +2,21 @@ import React from 'react';
 import { Container,Row,Col } from 'react-bootstrap';
 import { Parallax } from 'react-parallax';
 import img from '../assets/bg_jumbotron.jpg'
+import '../assets/font/font.css'
+import styled from 'styled-components'
+const ParallaxStyled=styled(Parallax)`
+  font-family:'OpenSansBold';
+  h3{
+    font-weight:bold;
+  }
+`
 const Jumbotron = () => {
   return (
-    <Parallax bgImage={img} strength={200}>
+    <ParallaxStyled bgImage={img} strength={200}>
         <Container className='my-5 pt-5'>
         <Row>
             <Col className="text-center text-light">
-              <h3>why choose us</h3>
+              <h3>{'why choose us'.toLocaleUpperCase()}</h3>
               <br />
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
@@ -35,7 +43,7 @@ const Jumbotron = () => {
             </Col>
           </Row>
         </Container>
-    </Parallax>
+    </ParallaxStyled>
   );
 };
 
