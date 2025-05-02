@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Django на METANIT.COM</title>
+</head>
+<body>
+    {{body}}
+    {% autoescape off %}
+        {{body}}
+    {% endautoescape %}
+
+    {% comment %}
+    <p>Эта часть закоментирована</p>
+    {% endcomment %}
+
+    {% if n > 0 %}
+        <p>Число положительное</p>
+    {% elif n < 0 %}
+        <p>Число отрицательное</p>
+    {% else %}
+        <p>Число рано нулю</p>
+    {% endif %}
+    <ul>
+        {% for lang in langs %}
+        <li>{{ lang }}</li>
+        {% empty %}
+        <li>Langs array is empty</li>
+        {% endfor %}
+    </ul>
+
+    {% for key,value in data.items %}
+    <p>{{ key }}:{{ value }}</p>
+    {% endfor %}
+
+
+    {% with name="Damir" age=35 %}
+    <div>
+        <p>Name: {{ name }}</p>
+        <p>Age: {{ age }}</p>
+    </div>
+    {% endwith %}
+
+    {% with message="Hello" mes="django" mes2="Я был дома"%}
+        <h2>{{ message|add:" Django" }}</h2>    	
+        {{ mes|capfirst }}
+        </br>
+        {{ mes2|cut:"был" }}
+    {% endwith %}
+</br>
+{% with isEnabled=False %}
+{{ isEnabled|default:"unabled" }}
+{% endwith %}
+</br>
+{% with name="" %}
+    {{ name|default:"Undefined" }}
+{% endwith %}
+</br>
+{% with user=None %}
+    {{ user|default_if_none:"Undefined" }}
+{% endwith %}
+</br>
+{% with value=34232.3452515 %}
+    {{ value|floatformat:"2g" }}
+    {{ value|floatformat:"0" }}
+    {{ value|floatformat:"-2" }}
+    {{ value|floatformat:3 }}
+    {{ value|floatformat:"2u" }}
+{% endwith %}
+</body>
+</html>
