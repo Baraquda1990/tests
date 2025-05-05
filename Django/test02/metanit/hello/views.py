@@ -31,3 +31,15 @@ def date_time(request):
 
 def date_time_format(request):
     return render(request,"date_time_format.html",context={"my_date":datetime.now()})
+
+def index2(request):
+    return render(request,"index2.html")
+
+def parentIndex(request):
+    return render(request, "parentIndex.html")
+
+def baseindex(request):
+    return render(request, "baseindex.html")
+ 
+def basecontacts(request):
+    return render(request, "basecontacts.html")

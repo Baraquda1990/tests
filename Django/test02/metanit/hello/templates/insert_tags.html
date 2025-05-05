@@ -67,5 +67,11 @@
     {{ value|floatformat:3 }}
     {{ value|floatformat:"2u" }}
 {% endwith %}
+</br>
+{{ langs|join:", " }}
+</br>
+{{ langs|slice:"0:1" }}
+</br>
+{{ langs|length }}
 </body>
 </html>

@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from hello import views
+from django.views.generic import TemplateView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +28,10 @@ urlpatterns = [
     path("insert_tags",views.insert_tags),
     path("date_time",views.date_time),
     path("date_time_format",views.date_time_format),
+    path("index2",views.index2),
+    path("tvabout/",TemplateView.as_view(template_name="tvabout.html",extra_context={"header":"О сайте"})),
+    path("tvcontact/",TemplateView.as_view(template_name="tvcaontact.html")),
+    path("parentindex", views.parentIndex),
+    path("baseindex", views.baseindex),
+    path("basecontacts/", views.basecontacts),
 ]
