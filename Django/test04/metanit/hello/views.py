@@ -236,6 +236,250 @@ def func03(request):
     
     return render(request,"index.html")
 
+def func04(request):
+    #Получаем пользователей, у которых возраст равен или 32, или 35, или 38,
+    people=Person.objects.filter(age__in=[32,35,38])
+    for p in people:
+        print(p.name)
+    return render(request,"index.html")
+
+def func05(request):
+    print("получаем пользователей у которых возраст больше чем 29")
+    people_gt=Person.objects.filter(age__gt=29)
+    for p in people_gt:
+        print(f"{p.name}-{p.age}")
+    print("получаем пользователей у которых возраст больше или равно 29")
+    people_gte=Person.objects.filter(age__gte=29)
+    for p in people_gte:
+        print(f"{p.name}-{p.age}")
+    print("получаем пользователей у которых возраст меньше 35")
+    people_lt=Person.objects.filter(age__lt=35)
+    for p in people_lt:
+        print(f"{p.name}-{p.age}")
+    print("получаем пользователей у которых возраст меньше или равно 35")
+    people_lte=Person.objects.filter(age__lte=35)
+    for p in people_lte:
+        print(f"{p.name}-{p.age}")
+    print("получаем пользователей, у которых имя начинается с To")
+    people = Person.objects.filter(name__startswith="To") 
+    for p in people:
+        print(f"{p.name}-{p.age}")
+    print("получаем пользователей, у которых имя начинается с To или to")
+    people = Person.objects.filter(name__istartswith="tO")
+    for p in people:
+        print(f"{p.name}-{p.age}")
+    print("получаем пользователей, у которых имя заканчивается на m")
+    people = Person.objects.filter(name__endswith="m")
+    for p in people:
+        print(f"{p.name}-{p.age}")
+    print("получаем пользователей, у которых имя заканчивается на m или M")
+    people = Person.objects.filter(name__iendswith="M")
+    for p in people:
+        print(f"{p.name}-{p.age}")
+    print("получаем пользователей, у которых возраст в диапазоне от 28 до 38 включительно")
+    people = Person.objects.filter(age__range=(28, 38))
+    for p in people:
+        print(f"{p.name}-{p.age}")
+    # получаем пользователей, у которых имя не установлено
+    people = Person.objects.filter(name__isnull=True)
+    # получаем пользователей, у которых возраст установлен
+    people = Person.objects.filter(age__isnull=False)
+    return render(request,"index.html")    
+
+def func06(request):
+    # получаем пользователей, у которых имя заканчивается на am или om
+    people = Person.objects.filter(name__regex=r"(am|om)$")  #iregex - не зависит от регистра
+    for p in people:
+        print(f"{p.name}-{p.age}")
+    return render(request,"index.html")
+
+from .models import Order
+from datetime import datetime,date,time
+def func08(request):
+    """
+    Целый ряд спецификаторов фильтрации предназначен для работы с датами:
+    date: значение поля должно соответствовать определенной дате. Представляет объект datetime.date
+    year: год даты должен соответствовать определенному значению.
+    month: определяет месяц даты
+    day: определяет день даты
+    week: определяет номер недели даты (1-52 или 53)
+    week_day: определяет день недели даты (от 1 (воскресенье) до 7 (суббота)
+    iso_week_day: определяет день недели даты (от 1 (понедельник) до 7 (воскресенье)
+    quarter: определяет номер квартала даты
+    time: определяет время даты. Представляет объект datetime.time
+    hour: определяет час даты (от 0 до 23)
+    minute: определяет минуту даты (от 0 до 59)
+    second: определяет секунду даты (от 0 до 59)
+    """
+    # добавление начальных данных
+    if Order.objects.count() == 0:
+        Order.objects.create(datatime = datetime(2021, 12, 26, 11, 25, 34))
+        Order.objects.create(datatime = datetime(2022, 5, 12, 12, 25, 34))
+        Order.objects.create(datatime = datetime(2022, 5, 22, 13, 25, 34))
+        Order.objects.create(datatime = datetime(2022, 8, 19, 14, 25, 34))
+    print("получаем заказы, сделанные в 5-м месяце")
+    orders = Order.objects.filter(datatime__month=5)
+    for order in orders:
+        print(order.datatime)
+    print("получаем заказы, сделанные после 5-го месяца")
+    orders = Order.objects.filter(datatime__month__gt=5)
+    for order in orders:
+        print(order.datatime)
+    print("получаем заказы, сделанные 22 мая")
+    orders = Order.objects.filter(datatime__date=date(2022, 5, 22))
+    for order in orders:
+        print(order.datatime)
+    print("получаем заказы, сделанные после 12 часов")
+    orders = Order.objects.filter(datatime__time__gt=time(12, 20, 0))
+    for order in orders:
+        print(order.datatime)
+    return render(request,"index.html")
+
+def func09(request):
+    print("вывести поле если name=Tom и age=22")
+    people = Person.objects.filter(name="Tom") & Person.objects.filter(age=22)
+    for p in people:
+        print(p.name)
+    print("вывести поле если name=Tom или age=22")
+    people = Person.objects.filter(name="Tom") | Person.objects.filter(age=22)
+    for p in people:
+        print(p.name)
+    print("вывести поле если name=Tom xor age=22")
+    people = Person.objects.filter(name="Tom") ^ Person.objects.filter(age=22)
+    for p in people:
+        print(p.name)
+    return render(request,"index.html")
+
+def func10(request):
+    print("упорядочиваем по имени по возрастанию")
+    people=Person.objects.order_by("name")
+    for person in people:
+        print(person.name)
+    print("Упорядочиваем поп имени и возрасту")
+    people=Person.objects.order_by("name","age")
+    for person in people:
+        print(person.name)
+    print("Реверсивная Сортировка по имени")
+    people=Person.objects.order_by("-name")
+    for person in people:
+        print(person.name)
+    """Методы values() и values_list() предназначены для оптимизации: 
+    для извлечения поднабора данных без необходимости 
+    создания полного объекта модели."""
+    print("Метод values")
+    people=Person.objects.values()
+    print(people)
+    print(people[1])
+    print("Также можно передать в метод values названия полей, которые должны быть в словаре (по умолчанию выбираются все поля модели):")
+    people=Person.objects.values("id","name")
+    print(people)
+    print("Метод values_list во многом аналогичен values(): он возвращает объект QuerySet, который состоит из кортежей. Каждый кортеж хранит данные одного объекта модели. Например:")
+    people=Person.objects.values_list()
+    print(people)
+    print("Также можно выбрать отдельные поля, передав их названия в метод:")
+    people=Person.objects.values_list("name","age")
+    print(people)
+    print("Если выбирается только одно поле, то в итоге получится набор кортежей, в каждом из которых будет по одному значению. Но передав параметру flat значение True можно упростить набор, вынеся значения на уровень выше:")
+    people=Person.objects.values_list("name",flat=True)
+    print(people)
+    return render(request,"index.html")
+
+def func11(request):
+    print("distinct() выбирает уникальные значения")
+    print("без distinct")
+    people=Person.objects.values_list("name",flat=True)
+    print(people)
+    print("с distinct")
+    people=Person.objects.values_list("name",flat=True).distinct()
+    print(people)
+    print("union() возвращает QuerySet, который является объединением двух QuerySet")
+    tom=Person.objects.filter(name="Tom")
+    milla=Person.objects.filter(name="Milla")
+    people=tom.union(milla)
+    print(people.values())
+    """По умолчанию метод union() выбирает только уникальные значения из обоих выборок. Если такое поведение нежелательно, то в метод необходимо передать аргумент all=True"""
+    # выбираем только уникальные (по умолчанию)
+    people = tom.values("name").union(milla)
+    print(people)
+    # <QuerySet [{'name': 'Bob'}, {'name': 'Tom'}]>
+    # выбираем все
+    people = tom.values("name").union(milla, all=True)
+    print(people)
+    # <QuerySet [{'name': 'Tom'}, {'name': 'Tom'}, {'name': 'Bob'}]>
+    print("Метод intersection() возвращает QuerySet в виде перечения других QuerySet (то есть находит объекты, которые есть во всех выборках).")
+    toms = Person.objects.filter(name="Tom")
+    print(toms.values())
+    # <QuerySet [{'id': 2, 'name': 'Tom', 'age': 38}, {'id': 5, 'name': 'Tom', 'age': 22}]>
+    
+    less35 = Person.objects.filter(age__lt=35)
+    print(less35.values())
+    # <QuerySet [{'id': 3, 'name': 'Sam', 'age': 28}, {'id': 4, 'name': 'Alice', 'age': 32}, {'id': 5, 'name': 'Tom', 'age': 22}]>
+    
+    # находим пересечение двух QuerySet
+    people = toms.intersection(less35)
+    print(people.values())
+    # <QuerySet [{'id': 5, 'name': 'Tom', 'age': 22}]>
+    print("Метод difference() возвращает QuerySet в виде разности других QuerySet (то есть находит объекты, которые есть в первой выборке, но отсутствуют в других)")
+    toms = Person.objects.filter(name="Tom")
+    print(toms.values())
+    # <QuerySet [{'id': 2, 'name': 'Tom', 'age': 38}, {'id': 5, 'name': 'Tom', 'age': 22}]>
+    
+    less35 = Person.objects.filter(age__lt=35)
+    print(less35.values())
+    # <QuerySet [{'id': 3, 'name': 'Sam', 'age': 28}, {'id': 4, 'name': 'Alice', 'age': 32}, {'id': 5, 'name': 'Tom', 'age': 22}]>
+    
+    # находим разность двух QuerySet
+    people = toms.difference(less35)
+    print(people.values())
+    # <QuerySet [{'id': 2, 'name': 'Tom', 'age': 38}]>
+    return render(request,"index.html")
+
+def func12(request):
+    print("получаем объект с самыми последними изменениями в поле id")
+    latest_person=Person.objects.latest("id")     #alatest
+    print(f"{latest_person.name} - {latest_person.age}")
+    print("получаем объект с самыми ранними изменениями в поле id")
+    latest_person=Person.objects.earliest("id")   #aearliest
+    print(f"{latest_person.name} - {latest_person.age}")
+    print("получаем объект с самыми последними изменениями в поле age и с самыми ранними изменениями в поле name")
+    latest_person=Person.objects.latest("age","-name")
+    print(f"{latest_person.name} - {latest_person.age}")
+    #Если ни одного объекта не найдено (например, в случае с пустым набором), оба метода генерируют исключение DoesNotExist
+    print("получим первый объект")
+    first_person = Person.objects.first()   #afirst
+    print(f"{first_person.name} - {first_person.age}")
+    print("получим последний объект")
+    last_person = Person.objects.last()     #alast
+    print(f"{last_person.name} - {last_person.age}")
+    print("получим первый объект из набора, отсортированного по возрасту")
+    first_person = Person.objects.order_by("age").first()
+    print(f"{first_person.name} - {first_person.age}")
+    #Если ни одного объекта не найдено (например, в случае с пустым набором), оба метода возвращают значение None
+    print("метод exists")           #aexists
+    is_present = Person.objects.filter(name = "Tom").exists()
+    if is_present:
+        print("в наборе есть объекты")
+    else:
+        print("объекты в наборе отсутствуют")
+    #если набор QuerySet содержит определенный объект
+    # получим последний объект
+    last_person = Person.objects.last()
+    # есть ли объект last_person среди тех, у которых age меньше 35
+    is_present = Person.objects.filter(age__lt=35).contains(last_person)      #acontains
+    if is_present:
+        print("объект есть в наборе")
+    else:
+        print("объект отсутствует")
+    return render(request,"index.html")
+
+def func13(request):
+    
+    return render(request,"index.html")
+
+
+
+
+
 
 
 

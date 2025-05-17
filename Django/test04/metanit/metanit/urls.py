@@ -19,5 +19,5 @@ from django.urls import path
 from hello import views
 
 urlpatterns = [
-    path("",views.func03)
+    path("",views.func13)
 ]
