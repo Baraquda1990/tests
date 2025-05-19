@@ -472,13 +472,66 @@ def func12(request):
         print("объект отсутствует")
     return render(request,"index.html")
 
+from django.db.models import Avg,Min,Max,Sum
+
 def func13(request):
+    print("Для вычисления количества объектов у QuerySet применяется метод count() и его асинхронная версия acount():")
+    number=Person.objects.count()     #acount
+    print(number)
+    print("Также можно ипзовать len")
+    people=Person.objects.all()
+    number=len(people)
+    print(number)
     
+    avg_per=Person.objects.aggregate(Avg("age"))
+    print(f"Среднее значение {avg_per}")
+    
+    max_per=Person.objects.aggregate(Max("age"))
+    print(f"Максимальное значение {max_per}")
+    
+    min_per=Person.objects.aggregate(Min("age"))
+    print(f"Минимальное значение {min_per}")
+
+    sum_per=Person.objects.aggregate(Sum("age"))
+    print(f"Сумма {sum_per}")
     return render(request,"index.html")
 
+def func14(request):
+    print("Выполнение метода raw")
+    people=Person.objects.raw("SELECT id, name, age FROM hello_person")
+    for pep in people:
+        print(pep.name,pep.age)
+    print(people[0].name,people[0].age)
+    print(people)
+    # здесь filter НЕ окажет никакого влияния
+    people = Person.objects.filter(age__lt=35).raw("SELECT * FROM hello_person")
 
+    print("Передача параметров в запрос")
+    name="Milla"
+    age=28
+    milla=Person.objects.raw("SELECT * FROM hello_person WHERE name=%s OR age=%s",[name,age])
+    print(milla)
+    print(milla[0].name)
 
+    return render(request,"index.html")
 
+from django.db import connection
+
+def func15(request):
+    with connection.cursor() as cursor:
+        cursor.execute("UPDATE hello_person SET name='Tomas' WHERE name='Tom' AND age=32")
+        cursor.execute("SELECT * FROM hello_person WHERE name='Tomas'")
+        row=cursor.fetchone()
+        print(row)
+    old_name='Tomas'
+    new_name='Tom'
+    with connection.cursor() as cursor:
+        cursor.execute("UPDATE hello_person SET name=%s WHERE name=%s",[new_name,old_name])
+        cursor.execute("SELECT * FROM hello_person WHERE name=%s",[new_name])
+        rows=cursor.fetchall()
+        for row in rows:
+            print(row)
+    return render(request,"index.html")
 
 
 
