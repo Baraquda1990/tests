@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <!--Подключение css-->
+    <link href={%static 'bootstrap/css/bootstrap.min.css'%} type="text/css" rel="stylesheet"></link>
+    <title>{{title}}</title>
+</head>
+<body>
+    <div class="container">
+        {% include "header.html" %}
+        <div class="row">
+            <div class="col-8">
+                {% include 'includes/messages.html' %}
+                {% block content %}
+
+                {% endblock %}
+                {% include "pagination.html" %}
+            </div>
+            <div class="col-4">
+                {% include "sidebar.html" %}
+            </div>
+        <div>
+        
+    </div>
+<script src={%static 'bootstrap/js/bootstrap/bundle.min.js'%}></script>
+</body>
+</html>
