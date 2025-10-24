@@ -1,0 +1,98 @@
+# Project information
+site_name: Пишем Telegram-ботов с aiogram 3.x
+site_description: Учебник по разработке ботов для Telegram на языке Python при помощи фреймворка aiogram 3.x
+site_author: MasterGroosha
+site_url: https://mastergroosha.github.io/aiogram-3-guide
+docs_dir: book_src
+site_dir: docs
+
+# Repository
+repo_name: MasterGroosha/aiogram-3-guide
+repo_url: https://github.com/MasterGroosha/aiogram-3-guide
+edit_uri: ""
+
+# Copyright
+copyright: Copyright &copy; 2020-2024 Groosha
+
+# Configuration
+theme:
+  name: material
+  custom_dir: book_src/overrides
+  language: ru
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    logo: material/robot
+#  features:
+#    - navigation.expand
+
+# Extras
+extra:
+  social:
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/+DE0_2nCvbXozZjUy
+      name: "Чат в Telegram"
+    - icon: fontawesome/brands/github
+      link: https://github.com/MasterGroosha/aiogram-3-guide
+      name: GitHub
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - meta
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+  - 'Введение': index.md
+  - 'Знакомство с aiogram': quickstart.md
+  - 'Работа с сообщениями': messages.md
+  - 'Кнопки': buttons.md
+  - 'Роутеры. Структура': routers.md
+  - 'Фильтры и мидлвари': filters-and-middlewares.md
+  - 'Особые апдейты': special-updates.md
+  - 'Конечные автоматы': fsm.md
+  - 'Инлайн-режим': inline-mode.md
+  - 'Платежи': payments.md
+  - '🔒 Продвинутый уровень': advanced-teaser.md
+#  - 'Дополнительное чтение':
+#    - 'Тест': extra/test.md
+
+
+plugins:
+  - mkdocs-video:
+      is_video: True
+      video_autoplay: False
+      video_type: mp4
+      css_style:
+        width: "100%"
+        height: "100%"
+  - search:
+      lang:
+        - en
+        - ru
+
+
+# Custom
+nav_name: "Оглавление"
